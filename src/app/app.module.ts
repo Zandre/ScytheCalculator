@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToolbarModule } from './toolbar/toolbar.module';
+import { PlayerFactionModule } from './player-faction/player-faction.module';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { ToolbarModule } from './toolbar/toolbar.module';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    ToolbarModule
+    ToolbarModule,
+    PlayerFactionModule
   ],
   providers: [],
   bootstrap: [AppComponent]
