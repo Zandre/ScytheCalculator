@@ -1,14 +1,9 @@
-import { createReducer } from "@ngrx/store";
-import { PlayerFactionInterface } from "../interfaces/player-faction.interface";
+import { createFeatureSelector, createSelector } from "@ngrx/store";
+import { PlayerFactionState } from "./player-faction.reducer";
 
-export interface PlayerFactionState {
-    playerFactions: PlayerFactionInterface[];
-}
+const getPlayerFactionFeatureState = createFeatureSelector<PlayerFactionState>('');
 
-const initialState: PlayerFactionState = {
-    playerFactions: []
-}
-
-export const playerFactionReducer = createReducer<PlayerFactionState>(
-    initialState
+export const getPlayerFactions = createSelector(
+    getPlayerFactionFeatureState,
+    state => state.playerFactions
 )
