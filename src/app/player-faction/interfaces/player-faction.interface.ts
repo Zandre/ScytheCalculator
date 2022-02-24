@@ -4,9 +4,9 @@ export interface PlayerFactionInterface {
     id: number | null;
     playerFactionType: PlayerFactionType;
     popularity: number;
-    victoryStar: number;
+    victoryStars: number;
     territories: number;
     resources: number;
     money: number;
-    structurebonuses: number;
+    structureBonuses: number;
 }
