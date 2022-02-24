@@ -1,10 +1,16 @@
-<mat-card class="example-card">
+<mat-card class="card">
     <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Shiba Inu</mat-card-title>
-      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+      <div mat-card-avatar [ngClass]="{'header-image-polania' : this.model.playerFactionType === this.polaniaFaction,
+                                        'header-image-saxony' : this.model.playerFactionType === this.saxonyFaction,
+                                        'header-image-crimea' : this.model.playerFactionType === this.crimeaFaction,
+                                        'header-image-nordic' : this.model.playerFactionType === this.nordicFaction,
+                                        'header-image-rusviet' : this.model.playerFactionType === this.rusvietFaction,
+                                        'header-image-albion' : this.model.playerFactionType === this.albionFaction,
+                                        'header-image-togawa' : this.model.playerFactionType === this.togawaFaction}"></div>
+      <mat-card-title>{{this.model.factionName}}</mat-card-title>
+      <mat-card-subtitle> {{this.model.factionCharacters}}</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <img mat-card-image src="./../../../assets/img/scythe/character_img/{{model.imageName}}.jpg"> 
     <mat-card-content>
       <p>
         The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
@@ -13,7 +19,9 @@
       </p>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-button>LIKE</button>
-      <button mat-button>SHARE</button>
+      <button mat-button>Edit</button>
+      <button mat-button>Delete</button>
     </mat-card-actions>
   </mat-card>
+
+  <!-- <pre>{{model | json}}</pre> -->

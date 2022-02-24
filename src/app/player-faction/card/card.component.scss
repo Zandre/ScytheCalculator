@@ -1,8 +1,38 @@
-.example-card {
-    max-width: 400px;
-  }
+.card {
+    max-width: 250px;
+}
   
-  .example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
-  }
+.header-image-polania {
+  background-image: url('./../../../assets/img/scythe/faction_emblem/polania.png');
+  background-size: cover;
+}
+
+.header-image-saxony {
+  background-image: url('./../../../assets/img/scythe/faction_emblem/saxony.png');
+  background-size: cover;
+}
+
+.header-image-crimea {
+  background-image: url('./../../../assets/img/scythe/faction_emblem/crimea.png');
+  background-size: cover;
+}
+
+.header-image-nordic {
+  background-image: url('./../../../assets/img/scythe/faction_emblem/nordic.png');
+  background-size: cover;
+}
+
+.header-image-rusviet {
+  background-image: url('./../../../assets/img/scythe/faction_emblem/rusviet.png');
+  background-size: cover;
+}
+
+.header-image-albion {
+  background-image: url('./../../../assets/img/scythe/faction_emblem/albion.png');
+  background-size: cover;
+}
+
+.header-image-togawa {
+  background-image: url('./../../../assets/img/scythe/faction_emblem/togawa.png');
+  background-size: cover;
+}

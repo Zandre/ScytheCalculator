@@ -1,3 +1,1 @@
-<pre *ngFor="let playerFaction of this.playerFactions">{{ playerFaction | json }}</pre>
-
-<faction-card></faction-card>
+<faction-card *ngFor="let playerFaction of this.playerFactions" [playerFaction]="playerFaction"></faction-card>
