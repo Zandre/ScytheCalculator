@@ -1,5 +1,7 @@
 .card {
     max-width: 250px;
+    margin-top: 5px;
+    margin-left: 5px;
 }
   
 .header-image-polania {
@@ -35,4 +37,8 @@
 .header-image-togawa {
   background-image: url('./../../../assets/img/scythe/faction_emblem/togawa.png');
   background-size: cover;
+}
+
+.total {
+  padding-top: 8px;
 }

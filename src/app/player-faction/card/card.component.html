@@ -12,11 +12,29 @@
     </mat-card-header>
     <img mat-card-image src="./../../../assets/img/scythe/character_img/{{model.imageName}}.jpg"> 
     <mat-card-content>
-      <p>
-        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-        bred for hunting.
-      </p>
+      <div class="total">
+        <mat-icon matBadge="{{this.model.popularity}}" matBadgeColor="accent" matTooltip="Popularity">favorite</mat-icon>
+      </div>
+      <div class="total">
+        <mat-icon matBadge="{{this.model.victoryStars}}" matBadgeColor="accent" matTooltip="Victory stars">star</mat-icon>
+        <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+      </div>
+      <div class="total">
+        <mat-icon matBadge="{{this.model.territories}}" matBadgeColor="accent" matTooltip="Territories">hexagon</mat-icon>
+        <mat-progress-bar mode="determinate" value="60"></mat-progress-bar>
+      </div>
+      <div class="total">
+        <mat-icon matBadge="{{this.model.resources}}" matBadgeColor="accent" matTooltip="Resources">forest</mat-icon>
+        <mat-progress-bar mode="determinate" value="30"></mat-progress-bar>
+      </div>
+      <div class="total">
+        <mat-icon matBadge="{{this.model.money}}" matBadgeColor="accent" matTooltip="Money">paid</mat-icon>
+        <mat-progress-bar mode="determinate" value="12"></mat-progress-bar>
+      </div>
+      <div class="total">
+        <mat-icon matBadge="{{this.model.structureBonuses}}" matBadgeColor="accent" matTooltip="Structure Bonuses">home</mat-icon>
+        <mat-progress-bar mode="determinate" value="9"></mat-progress-bar>
+      </div>
     </mat-card-content>
     <mat-card-actions>
       <button mat-button>Edit</button>
