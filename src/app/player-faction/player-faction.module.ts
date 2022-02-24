@@ -5,7 +5,7 @@ import { playerFactionReducer } from './state/player-faction.reducer';
 import { ShellComponent } from './shell/shell.component';
 import { PlayerFactionEffects } from './state/player-faction.effects';
 import { EffectsModule } from '@ngrx/effects';
-
+import { CardModule } from './card/card.module';
 
 @NgModule({
   declarations: [
@@ -17,7 +17,8 @@ import { EffectsModule } from '@ngrx/effects';
   imports: [
     CommonModule,
     StoreModule.forFeature('playerFactions', playerFactionReducer),
-    EffectsModule.forFeature([PlayerFactionEffects])
+    EffectsModule.forFeature([PlayerFactionEffects]),
+    CardModule
   ]
 })
 export class PlayerFactionModule { }
