@@ -1,9 +1,9 @@
 import { createAction, props } from "@ngrx/store";
-import { PlayerFactionInterface } from "../../interfaces/player-faction.interface";
+import { PlayerFaction } from "../../interfaces/player-faction.interface";
 
 export const loadSuccess = createAction(
     '[Player Faction API] Load Success',
-    props<{ playerFactions: PlayerFactionInterface[] }>()
+    props<{ playerFactions: PlayerFaction[] }>()
 );
 
 export const loadFailure = createAction(
@@ -13,7 +13,7 @@ export const loadFailure = createAction(
 
 export const updateSuccess = createAction(
     '[Player Faction API] Update Success',
-    props<{ playerFaction: PlayerFactionInterface }>()
+    props<{ playerFaction: PlayerFaction }>()
 );
 
 export const updateFailure = createAction(
@@ -23,7 +23,7 @@ export const updateFailure = createAction(
 
 export const createSuccess = createAction(
     '[Player Faction API] Create Success',
-    props<{ playerFaction: PlayerFactionInterface }>()
+    props<{ playerFaction: PlayerFaction }>()
 );
 
 export const createFailure = createAction(

@@ -1,10 +1,10 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 import { PlayerFactionType } from '../enums/player-faction-type.enum';
-import { PlayerFactionInterface } from '../interfaces/player-faction.interface';
+import { PlayerFaction } from '../interfaces/player-faction.interface';
 
 export class PlayerFactionData implements InMemoryDbService {
     createDb() {
-        const playerFactions: PlayerFactionInterface[] = [
+        const playerFactions: PlayerFaction[] = [
             {
                 id: 1,
                 playerFactionType: PlayerFactionType.Crimea,

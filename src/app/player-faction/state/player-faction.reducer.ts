@@ -1,9 +1,9 @@
 import { createReducer, on } from "@ngrx/store";
-import { PlayerFactionInterface } from "../interfaces/player-faction.interface";
-import { PlayerFactionPageActions, PlayerFactionApiActions } from "./actions";
+import { PlayerFaction } from "../interfaces/player-faction.interface";
+import { PlayerFactionApiActions } from "./actions";
 
 export interface PlayerFactionState {
-    playerFactions: PlayerFactionInterface[];
+    playerFactions: PlayerFaction[];
 }
 
 const initialState: PlayerFactionState = {

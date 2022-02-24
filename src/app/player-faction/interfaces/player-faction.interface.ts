@@ -1,6 +1,6 @@
 import { PlayerFactionType } from "../enums/player-faction-type.enum";
 
-export interface PlayerFactionInterface {
+export interface PlayerFaction {
     id: number | null;
     playerFactionType: PlayerFactionType;
     popularity: number;

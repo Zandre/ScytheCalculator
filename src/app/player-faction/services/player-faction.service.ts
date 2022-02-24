@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { catchError, map, Observable, tap, throwError } from "rxjs";
-import { PlayerFactionInterface } from "../interfaces/player-faction.interface";
+import { PlayerFaction } from "../interfaces/player-faction.interface";
 
 @Injectable({
     providedIn: 'root',
@@ -14,19 +14,19 @@ export class PlayerFactionService {
 
     }
 
-    getPlayerFactions(): Observable<PlayerFactionInterface[]> {
-        return this.http.get<PlayerFactionInterface[]>(this.playerFactionsUrl)
+    getPlayerFactions(): Observable<PlayerFaction[]> {
+        return this.http.get<PlayerFaction[]>(this.playerFactionsUrl)
             .pipe(
                 tap(data => console.log(JSON.stringify(data))),
                 catchError(this.handleError)
             );
     }
 
-    createPlayerFaction(playerFaction: PlayerFactionInterface): Observable<PlayerFactionInterface> {
+    createPlayerFaction(playerFaction: PlayerFaction): Observable<PlayerFaction> {
         const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         // PlayerFaction Id must be null for the Web API to assign an Id
         const newPlayerFaction = { ...playerFaction, id: null };
-        return this.http.post<PlayerFactionInterface>(this.playerFactionsUrl, newPlayerFaction, { headers })
+        return this.http.post<PlayerFaction>(this.playerFactionsUrl, newPlayerFaction, { headers })
             .pipe(
                 tap(data => console.log('create PlayerFaction: ', JSON.stringify(data))),
                 catchError(this.handleError)
@@ -36,17 +36,17 @@ export class PlayerFactionService {
     deletePlayerFaction(id: number): Observable<{}> {
         const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         const url = `${this.playerFactionsUrl}/${id}`;
-        return this.http.delete<PlayerFactionInterface>(url, { headers })
+        return this.http.delete<PlayerFaction>(url, { headers })
             .pipe(
                 tap(data => console.log('delete PlayerFaction: ', id)),
                 catchError(this.handleError)
             );
     }
 
-    updatePlayerFaction(playerFaction: PlayerFactionInterface): Observable<PlayerFactionInterface> {
+    updatePlayerFaction(playerFaction: PlayerFaction): Observable<PlayerFaction> {
         const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         const url = `${this.playerFactionsUrl}/${playerFaction.id}`;
-        return this.http.put<PlayerFactionInterface>(url, playerFaction, { headers })
+        return this.http.put<PlayerFaction>(url, playerFaction, { headers })
             .pipe(
                 tap(() => console.log('update PlayerFaction: ', playerFaction.id)),
                 // return the player faction on an update

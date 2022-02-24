@@ -1,7 +1,7 @@
 import { PlayerFactionType } from "../../enums/player-faction-type.enum";
-import { PlayerFactionInterface } from "../../interfaces/player-faction.interface";
+import { PlayerFaction } from "../../interfaces/player-faction.interface";
 
-export class CardModel implements PlayerFactionInterface {
+export class CardModel implements PlayerFaction {
     
     // interface properties
     id: number;
@@ -18,7 +18,7 @@ export class CardModel implements PlayerFactionInterface {
     factionCharacters: string;
     imageName: string;
 
-    static create(input: PlayerFactionInterface): CardModel {
+    static create(input: PlayerFaction): CardModel {
         const model = new CardModel();
 
         model.id = input.id;
@@ -63,7 +63,7 @@ export class CardModel implements PlayerFactionInterface {
                 break;  
             case PlayerFactionType.Togawa:
                 model.factionName = "Togawa Shogunate";
-                model.factionCharacters = "Akiko & Jirp";
+                model.factionCharacters = "Akiko & Jiro";
                 model.imageName = "togawa";
                 break;                                        
         }

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { PlayerFactionInterface } from '../interfaces/player-faction.interface';
+import { PlayerFaction } from '../interfaces/player-faction.interface';
 
 @Component({
   selector: 'player-faction-shell',
@@ -8,5 +8,5 @@ import { PlayerFactionInterface } from '../interfaces/player-faction.interface';
 })
 
 export class ShellComponent {
-  @Input() playerFactions: PlayerFactionInterface[];
+  @Input() playerFactions: PlayerFaction[];
 }
