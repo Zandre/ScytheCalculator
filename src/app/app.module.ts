@@ -16,6 +16,8 @@ import { PlayerFactionModule } from './player-faction/player-faction.module';
 // Database
 import { PlayerFactionData } from './player-faction/database/player-faction.data';
 import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -30,11 +32,12 @@ import { EffectsModule } from '@ngrx/effects';
 
     // NgRX
     StoreModule.forRoot({}, {}),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
 
     // App modules and components
     ToolbarModule,
     PlayerFactionModule,
-    EffectsModule.forRoot([]),
+    EffectsModule.forRoot([])
   ],
   providers: [],
   bootstrap: [AppComponent]
