@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToolbarModule } from './toolbar/toolbar.module';
 import { PlayerFactionModule } from './player-faction/player-faction.module';
+import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { PlayerFactionModule } from './player-faction/player-faction.module';
     BrowserModule,
     BrowserAnimationsModule,
     ToolbarModule,
-    PlayerFactionModule
+    PlayerFactionModule,
+    StoreModule.forRoot({}, {})
   ],
   providers: [],
   bootstrap: [AppComponent]
