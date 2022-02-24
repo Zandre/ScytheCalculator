@@ -15,6 +15,7 @@ import { PlayerFactionModule } from './player-faction/player-faction.module';
 
 // Database
 import { PlayerFactionData } from './player-faction/database/player-faction.data';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { PlayerFactionData } from './player-faction/database/player-faction.data
     // App modules and components
     ToolbarModule,
     PlayerFactionModule,
+    EffectsModule.forRoot([]),
   ],
   providers: [],
   bootstrap: [AppComponent]

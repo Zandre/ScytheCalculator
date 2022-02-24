@@ -43,7 +43,7 @@ export class PlayerFactionService {
             );
     }
 
-    updatePlayerFaction(playerFaction: PlayerFactionInterface): Observable<{}> {
+    updatePlayerFaction(playerFaction: PlayerFactionInterface): Observable<PlayerFactionInterface> {
         const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         const url = `${this.playerFactionsUrl}/${playerFaction.id}`;
         return this.http.put<PlayerFactionInterface>(url, playerFaction, { headers })
