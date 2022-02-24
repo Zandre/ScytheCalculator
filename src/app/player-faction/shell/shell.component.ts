@@ -1,20 +1,12 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { PlayerFactionState } from '../state/player-faction.reducer';
+import { Component, Input } from '@angular/core';
+import { PlayerFactionInterface } from '../interfaces/player-faction.interface';
 
 @Component({
   selector: 'player-faction-shell',
   templateUrl: './shell.component.html',
-  styleUrls: ['./shell.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./shell.component.scss']
 })
-export class ShellComponent implements OnInit {
 
-  constructor(private store: Store<PlayerFactionState>) {
-
-   }
-
-  ngOnInit(): void {
-  }
-
+export class ShellComponent {
+  @Input() playerFactions: PlayerFactionInterface[];
 }
