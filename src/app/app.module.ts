@@ -1,6 +1,7 @@
 // Angular
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -29,6 +30,7 @@ import { environment } from '../environments/environment';
     BrowserAnimationsModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(PlayerFactionData),
+    FlexLayoutModule,
 
     // NgRX
     StoreModule.forRoot({}, {}),

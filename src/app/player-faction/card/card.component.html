@@ -12,33 +12,48 @@
     </mat-card-header>
     <img mat-card-image src="./../../../assets/img/scythe/character_img/{{model.imageName}}.jpg"> 
     <mat-card-content>
-      <div class="total">
-        <mat-icon matBadge="{{this.model.popularity}}" matBadgeColor="accent" matTooltip="Popularity">favorite</mat-icon>
+      <div fxLayout="row" fxLayoutAlign="center center">
+        <h1>$90</h1>
       </div>
-      <div class="total">
-        <mat-icon matBadge="{{this.model.victoryStars}}" matBadgeColor="accent" matTooltip="Victory stars">star</mat-icon>
-        <mat-progress-bar mode="determinate" value="40"></mat-progress-bar>
+      <div fxLayout="row" fxLayoutGap="1em" fxLayoutAlign="start center" class="total">
+        <mat-icon fxLayout="15" matBadge="{{this.model.popularity}}" matBadgeColor="accent" matBadgeSize="small" matTooltip="Popularity">favorite</mat-icon>
+        <mat-progress-bar fxLayout="70" mode="determinate" value="80" color="accent"></mat-progress-bar>
       </div>
-      <div class="total">
-        <mat-icon matBadge="{{this.model.territories}}" matBadgeColor="accent" matTooltip="Territories">hexagon</mat-icon>
-        <mat-progress-bar mode="determinate" value="60"></mat-progress-bar>
+      <div fxLayout="row" fxLayoutGap="1em" fxLayoutAlign="start center" class="total">
+        <mat-icon fxLayout="15" matBadge="{{this.model.victoryStars}}" matBadgeSize="small" matTooltip="Victory stars">star</mat-icon>
+        <mat-progress-bar fxLayout="70" mode="determinate" value="40"></mat-progress-bar>
+        <span fxLayout="15">$15</span>
       </div>
-      <div class="total">
-        <mat-icon matBadge="{{this.model.resources}}" matBadgeColor="accent" matTooltip="Resources">forest</mat-icon>
-        <mat-progress-bar mode="determinate" value="30"></mat-progress-bar>
+      <div fxLayout="row" fxLayoutGap="1em" fxLayoutAlign="start center" class="total">
+        <mat-icon fxLayout="15" matBadge="{{this.model.territories}}" matBadgeSize="small" matTooltip="Territories">hexagon</mat-icon>
+        <mat-progress-bar fxLayout="70" mode="determinate" value="60"></mat-progress-bar>
+        <span fxLayout="15">$15</span>
       </div>
-      <div class="total">
-        <mat-icon matBadge="{{this.model.money}}" matBadgeColor="accent" matTooltip="Money">paid</mat-icon>
-        <mat-progress-bar mode="determinate" value="12"></mat-progress-bar>
+      <div fxLayout="row" fxLayoutGap="1em" fxLayoutAlign="start center" class="total">
+        <mat-icon fxLayout="15" matBadge="{{this.model.resources}}" matBadgeSize="small" matTooltip="Resources">forest</mat-icon>
+        <mat-progress-bar fxLayout="70" mode="determinate" value="30"></mat-progress-bar>
+        <span fxLayout="15">$15</span>
       </div>
-      <div class="total">
-        <mat-icon matBadge="{{this.model.structureBonuses}}" matBadgeColor="accent" matTooltip="Structure Bonuses">home</mat-icon>
-        <mat-progress-bar mode="determinate" value="9"></mat-progress-bar>
+      <div fxLayout="row" fxLayoutGap="1em" fxLayoutAlign="start center" class="total">
+        <mat-icon fxLayout="15" matBadge="{{this.model.money}}" matBadgeSize="small" matTooltip="Money">paid</mat-icon>
+        <mat-progress-bar fxLayout="70" mode="determinate" value="12"></mat-progress-bar>
+        <span fxLayout="15">$15</span>
+      </div>
+      <div fxLayout="row" fxLayoutGap="1em" fxLayoutAlign="start center" class="total">
+        <mat-icon fxLayout="15" matBadge="{{this.model.structureBonuses}}" matBadgeSize="small" matTooltip="Structure Bonuses">home</mat-icon>
+        <mat-progress-bar fxLayout="70" mode="determinate" value="9"></mat-progress-bar>
+        <span fxLayout="15">$15</span>
       </div>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-button>Edit</button>
-      <button mat-button>Delete</button>
+      <div fxLayout="row" fxLayoutGap="1em" fxLayoutAlign="start center">
+        <button mat-mini-fab color="accent">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-mini-fab color="accent">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
     </mat-card-actions>
   </mat-card>
 

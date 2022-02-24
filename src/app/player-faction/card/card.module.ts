@@ -7,6 +7,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MatBadgeModule,
     MatIconModule,
     MatTooltipModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    FlexLayoutModule
   ]
 })
 export class CardModule { }

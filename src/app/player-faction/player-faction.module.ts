@@ -6,6 +6,7 @@ import { ShellComponent } from './shell/shell.component';
 import { PlayerFactionEffects } from './state/player-faction.effects';
 import { EffectsModule } from '@ngrx/effects';
 import { CardModule } from './card/card.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { CardModule } from './card/card.module';
     CommonModule,
     StoreModule.forFeature('playerFactions', playerFactionReducer),
     EffectsModule.forFeature([PlayerFactionEffects]),
-    CardModule
+    CardModule,
+    FlexLayoutModule
   ]
 })
 export class PlayerFactionModule { }
