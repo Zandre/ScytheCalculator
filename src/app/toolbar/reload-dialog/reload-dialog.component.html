@@ -1,0 +1,14 @@
+<span class="h2" mat-dialog-title>Reload</span>
+<mat-dialog-content>
+    <span>Are you sure you want to reload? All data will be lost.</span>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <div fxLayout="row" fxLayoutGap="1em" fxLayoutAlign="start center">
+        <button mat-stroked-button color="primary" (click)="reloadClicked()">
+          Reload <mat-icon>sync</mat-icon>
+        </button>
+        <button mat-stroked-button (click)="cancelClicked()">
+          Cancel <mat-icon>close</mat-icon>
+        </button>
+    </div>
+</mat-dialog-actions>

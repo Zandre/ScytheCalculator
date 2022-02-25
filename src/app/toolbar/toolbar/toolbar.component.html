@@ -2,6 +2,8 @@
     <mat-toolbar-row>
       <span>Scythe Calculator</span>
       <span class="spacer"></span>
-      <mat-icon class="icon" aria-hidden="false">sync</mat-icon>
+      <button mat-icon-button class="icon" (click)="reloadClicked()">
+        <mat-icon>sync</mat-icon>
+      </button>
     </mat-toolbar-row>
 </mat-toolbar>

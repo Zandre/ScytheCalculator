@@ -1,4 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ReloadDialogComponent } from '../reload-dialog/reload-dialog.component';
 
 @Component({
   selector: 'toolbar',
@@ -8,9 +10,13 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 })
 export class ToolbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
+  }
+
+  reloadClicked(): void {
+    this.dialog.open(ReloadDialogComponent, {});
   }
 
 }
