@@ -7,10 +7,11 @@ import { PlayerFactionEffects } from './state/player-faction.effects';
 import { EffectsModule } from '@ngrx/effects';
 import { CardModule } from './card/card.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { NewPlayerFactionCardModule } from './new-player-faction-card/new-player-faction-card.module';
 
 @NgModule({
   declarations: [
-    ShellComponent
+    ShellComponent,
   ],
   exports: [
     ShellComponent
@@ -20,7 +21,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     StoreModule.forFeature('playerFactions', playerFactionReducer),
     EffectsModule.forFeature([PlayerFactionEffects]),
     CardModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    NewPlayerFactionCardModule
   ]
 })
 export class PlayerFactionModule { }
