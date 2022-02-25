@@ -2,7 +2,7 @@ import { maxNumber, prop, required } from "@rxweb/reactive-forms";
 import { PlayerFactionType } from "../../enums/player-faction-type.enum";
 import { PlayerFaction } from "../../interfaces/player-faction.interface";
 
-export class NewPlayerFactionModel implements PlayerFaction {
+export class PlayerFactionModel implements PlayerFaction {
     
     @prop()
     id: number;
@@ -41,8 +41,8 @@ export class NewPlayerFactionModel implements PlayerFaction {
     @maxNumber({ value: 20 })
     structureBonuses: number;
 
-    static createFromInput(input: PlayerFaction): NewPlayerFactionModel {
-        const model = new NewPlayerFactionModel();
+    static createFromInput(input: PlayerFaction): PlayerFactionModel {
+        const model = new PlayerFactionModel();
 
         model.id = input.id;
         model.playerFactionType = input.playerFactionType;
@@ -56,8 +56,8 @@ export class NewPlayerFactionModel implements PlayerFaction {
         return model;
     }
 
-    static createEmpty(): NewPlayerFactionModel {
-        return new NewPlayerFactionModel();
+    static createEmpty(): PlayerFactionModel {
+        return new PlayerFactionModel();
     }
 
 }

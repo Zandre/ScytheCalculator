@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NewPlayerFactionDialogComponent } from './new-player-faction-dialog.component';
+import { NewPlayerFactionDialogComponent } from './player-faction-dialog.component';
 
 describe('NewPlayerFactionDialogComponent', () => {
   let component: NewPlayerFactionDialogComponent;
