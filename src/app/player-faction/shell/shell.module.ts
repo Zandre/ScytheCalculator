@@ -16,7 +16,7 @@ import { NewPlayerFactionCardModule } from '../new-player-faction-card/new-playe
     CommonModule,
     CardModule,
     FlexLayoutModule,
-    NewPlayerFactionCardModule
+    NewPlayerFactionCardModule,
   ]
 })
 export class ShellModule { }

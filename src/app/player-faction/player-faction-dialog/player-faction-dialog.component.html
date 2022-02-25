@@ -1,1 +1,92 @@
-<p>new-player-faction-dialog works!</p>
+<span class="h2" mat-dialog-title>Player Faction</span>
+<mat-dialog-content>
+  <form name="playerFactionFormGroup" id="form" [formGroup]="playerFactionFormGroup" fxLayout="column">
+
+    <mat-form-field>
+        <mat-label>Faction</mat-label>
+        <mat-select placeholder="Faction" formControlName="playerFactionType">
+          <mat-option value="1">Polania Republic</mat-option>
+          <mat-option value="2">Saxony Empire</mat-option>
+          <mat-option value="3">Crimean Khanate</mat-option>
+          <mat-option value="4">Nordic Kingdom</mat-option>
+          <mat-option value="5">Rusviet Union</mat-option>
+          <mat-option value="6">Clan Albion</mat-option>
+          <mat-option value="7">Togawa Shogunate</mat-option>
+        </mat-select>
+        <mat-error>
+          {{ this.playerFactionFormGroup.controls.playerFactionType.errorMessage }}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Popularity</mat-label>
+      <mat-select placeholder="Popularity" formControlName="popularity">
+        <mat-option *ngFor="let item of this.popularityArray; index as i" value="item">{{item}}</mat-option>
+      </mat-select>
+      <mat-error>
+        {{ this.playerFactionFormGroup.controls.popularity.errorMessage }}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Victory Stars</mat-label>
+      <mat-select placeholder="Victory Stars" formControlName="victoryStars">
+        <mat-option *ngFor="let item of this.victoryStarsArray; index as i" value="item">{{item}}</mat-option>
+      </mat-select>
+      <mat-error>
+        {{ this.playerFactionFormGroup.controls.victoryStars.errorMessage }}
+      </mat-error>
+    </mat-form-field> 
+    
+    <mat-form-field>
+      <mat-label>Territories</mat-label>
+      <mat-select placeholder="Territories" formControlName="territories">
+        <mat-option *ngFor="let item of this.territoriesArray; index as i" value="item">{{item}}</mat-option>
+      </mat-select>
+      <mat-error>
+        {{ this.playerFactionFormGroup.controls.territories.errorMessage }}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Resources</mat-label>
+      <mat-select placeholder="Resources" formControlName="resources">
+        <mat-option *ngFor="let item of this.resourcesArray; index as i" value="item">{{item}}</mat-option>
+      </mat-select>
+      <mat-error>
+        {{ this.playerFactionFormGroup.controls.resources.errorMessage }}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Money</mat-label>
+      <mat-select placeholder="Money" formControlName="money">
+        <mat-option *ngFor="let item of this.moneyArray; index as i" value="item">{{item}}</mat-option>
+      </mat-select>
+      <mat-error>
+        {{ this.playerFactionFormGroup.controls.money.errorMessage }}
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Structure Bonuses</mat-label>
+      <mat-select placeholder="Structure Bonuses" formControlName="structureBonuses">
+        <mat-option *ngFor="let item of this.structureBonusesArray; index as i" value="item">{{item}}</mat-option>
+      </mat-select>
+      <mat-error>
+        {{ this.playerFactionFormGroup.controls.structureBonuses.errorMessage }}
+      </mat-error>
+    </mat-form-field>
+
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <div fxLayout="row" fxLayoutGap="1em" fxLayoutAlign="start center">
+        <button mat-stroked-button color="primary" (click)="saveDialog()">
+          Save <mat-icon>save</mat-icon>
+        </button>
+        <button mat-stroked-button (click)="closeDialog()">
+          Cancel <mat-icon>close</mat-icon>
+        </button>
+    </div>
+</mat-dialog-actions>

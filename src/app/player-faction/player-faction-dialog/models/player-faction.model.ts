@@ -1,4 +1,5 @@
-import { maxNumber, prop, required } from "@rxweb/reactive-forms";
+
+import { maxNumber, prop, required } from "@rxweb/reactive-form-validators";
 import { PlayerFactionType } from "../../enums/player-faction-type.enum";
 import { PlayerFaction } from "../../interfaces/player-faction.interface";
 

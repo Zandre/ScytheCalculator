@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NewPlayerFactionDialogComponent } from './player-faction-dialog.component';
+import { PlayerFactionDialogComponent } from './player-faction-dialog.component';
 
 describe('NewPlayerFactionDialogComponent', () => {
-  let component: NewPlayerFactionDialogComponent;
-  let fixture: ComponentFixture<NewPlayerFactionDialogComponent>;
+  let component: PlayerFactionDialogComponent;
+  let fixture: ComponentFixture<PlayerFactionDialogComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NewPlayerFactionDialogComponent ]
+      declarations: [ PlayerFactionDialogComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NewPlayerFactionDialogComponent);
+    fixture = TestBed.createComponent(PlayerFactionDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

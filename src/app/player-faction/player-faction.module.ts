@@ -4,7 +4,7 @@ import { StoreModule } from '@ngrx/store';
 import { playerFactionReducer } from './state/player-faction.reducer';
 import { PlayerFactionEffects } from './state/player-faction.effects';
 import { EffectsModule } from '@ngrx/effects';
-import { NewPlayerFactionCardModule } from './new-player-faction-card/new-player-faction-card.module';
+import { PlayerFactionDialogModule } from './player-faction-dialog/player-faction-dialog.module';
 
 @NgModule({
 
@@ -12,7 +12,7 @@ import { NewPlayerFactionCardModule } from './new-player-faction-card/new-player
     CommonModule,
     StoreModule.forFeature('playerFactions', playerFactionReducer),
     EffectsModule.forFeature([PlayerFactionEffects]),
-    NewPlayerFactionCardModule
+    PlayerFactionDialogModule
   ]
 })
 export class PlayerFactionModule { }
