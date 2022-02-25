@@ -26,7 +26,7 @@ export class PlayerFactionService {
     createPlayerFaction(playerFaction: PlayerFaction): Observable<PlayerFaction> {
         const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         // PlayerFaction Id must be null for the Web API to assign an Id
-        const newPlayerFaction = { ...playerFaction, id: null };
+        const newPlayerFaction = { ...playerFaction, id: '' };
         return this.http.post<PlayerFaction>(this.playerFactionsUrl, newPlayerFaction, { headers })
             .pipe(
                 tap(data => console.log('create PlayerFaction: ', JSON.stringify(data))),
