@@ -1,3 +1,5 @@
-<ng-container fxFlex fxLayoutGap="10px grid">
-    <faction-card *ngFor="let playerFaction of this.playerFactions" [playerFaction]="playerFaction"></faction-card>
-</ng-container>
+<div fxFlexFill class="top-div">
+    <div fxFlexFill fxLayoutGap="10px grid" class="inner-div">
+        <faction-card *ngFor="let playerFaction of this.playerFactions" [playerFaction]="playerFaction"></faction-card>
+    </div>
+</div>
