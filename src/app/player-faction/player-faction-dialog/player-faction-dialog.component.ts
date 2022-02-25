@@ -28,7 +28,7 @@ export class PlayerFactionDialogComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public _model: PlayerFaction,
   private readonly _rxFormBuilder: RxFormBuilder,
   private _dialogRef: MatDialogRef<PlayerFactionDialogComponent, PlayerFactionModel>,
-  private store: Store<PlayerFactionState>,) { }
+  private store: Store<PlayerFactionState>) { }
 
   ngOnInit(): void {
 

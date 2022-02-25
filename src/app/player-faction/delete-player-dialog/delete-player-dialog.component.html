@@ -1,0 +1,14 @@
+<span class="h2" mat-dialog-title>Delete Player Faction</span>
+<mat-dialog-content>
+    <span>Are you sure you want to delete this faction?</span>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <div fxLayout="row" fxLayoutGap="1em" fxLayoutAlign="start center">
+        <button mat-stroked-button color="warn" (click)="deleteClicked()">
+          Delete <mat-icon>delete</mat-icon>
+        </button>
+        <button mat-stroked-button (click)="cancelClicked()">
+          Cancel <mat-icon>close</mat-icon>
+        </button>
+    </div>
+</mat-dialog-actions>

@@ -1,5 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { DeletePlayerDialogComponent } from '../delete-player-dialog/delete-player-dialog.component';
 import { PlayerFactionType } from '../enums/player-faction-type.enum';
 import { PlayerFaction } from '../interfaces/player-faction.interface';
 import { PlayerFactionDialogComponent } from '../player-faction-dialog/player-faction-dialog.component';
@@ -35,6 +36,12 @@ export class CardComponent implements OnInit {
     this.dialog.open(PlayerFactionDialogComponent, {
       width: '400px',
       data: playerFaction
+    });
+  }
+
+  deleteClicked(playerFaction: PlayerFaction): void {
+    this.dialog.open(DeletePlayerDialogComponent, {
+      data: playerFaction.id
     });
   }
 
