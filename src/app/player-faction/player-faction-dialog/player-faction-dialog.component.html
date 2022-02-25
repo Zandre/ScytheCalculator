@@ -21,7 +21,7 @@
     <mat-form-field>
       <mat-label>Popularity</mat-label>
       <mat-select placeholder="Popularity" formControlName="popularity">
-        <mat-option *ngFor="let item of this.popularityArray; index as i" value="item">{{item}}</mat-option>
+        <mat-option *ngFor="let item of this.popularityArray; index as i" [value]="item">{{item}}</mat-option>
       </mat-select>
       <mat-error>
         {{ this.playerFactionFormGroup.controls.popularity.errorMessage }}
@@ -31,7 +31,7 @@
     <mat-form-field>
       <mat-label>Victory Stars</mat-label>
       <mat-select placeholder="Victory Stars" formControlName="victoryStars">
-        <mat-option *ngFor="let item of this.victoryStarsArray; index as i" value="item">{{item}}</mat-option>
+        <mat-option *ngFor="let item of this.victoryStarsArray; index as i" [value]="item">{{item}}</mat-option>
       </mat-select>
       <mat-error>
         {{ this.playerFactionFormGroup.controls.victoryStars.errorMessage }}
@@ -41,7 +41,7 @@
     <mat-form-field>
       <mat-label>Territories</mat-label>
       <mat-select placeholder="Territories" formControlName="territories">
-        <mat-option *ngFor="let item of this.territoriesArray; index as i" value="item">{{item}}</mat-option>
+        <mat-option *ngFor="let item of this.territoriesArray; index as i" [value]="item">{{item}}</mat-option>
       </mat-select>
       <mat-error>
         {{ this.playerFactionFormGroup.controls.territories.errorMessage }}
@@ -51,7 +51,7 @@
     <mat-form-field>
       <mat-label>Resources</mat-label>
       <mat-select placeholder="Resources" formControlName="resources">
-        <mat-option *ngFor="let item of this.resourcesArray; index as i" value="item">{{item}}</mat-option>
+        <mat-option *ngFor="let item of this.resourcesArray; index as i" [value]="item">{{item}}</mat-option>
       </mat-select>
       <mat-error>
         {{ this.playerFactionFormGroup.controls.resources.errorMessage }}
@@ -61,7 +61,7 @@
     <mat-form-field>
       <mat-label>Money</mat-label>
       <mat-select placeholder="Money" formControlName="money">
-        <mat-option *ngFor="let item of this.moneyArray; index as i" value="item">{{item}}</mat-option>
+        <mat-option *ngFor="let item of this.moneyArray; index as i" [value]="item">{{item}}</mat-option>
       </mat-select>
       <mat-error>
         {{ this.playerFactionFormGroup.controls.money.errorMessage }}
@@ -71,7 +71,7 @@
     <mat-form-field>
       <mat-label>Structure Bonuses</mat-label>
       <mat-select placeholder="Structure Bonuses" formControlName="structureBonuses">
-        <mat-option *ngFor="let item of this.structureBonusesArray; index as i" value="item">{{item}}</mat-option>
+        <mat-option *ngFor="let item of this.structureBonusesArray; index as i" [value]="item">{{item}}</mat-option>
       </mat-select>
       <mat-error>
         {{ this.playerFactionFormGroup.controls.structureBonuses.errorMessage }}
@@ -90,3 +90,6 @@
         </button>
     </div>
 </mat-dialog-actions>
+
+
+<!-- <pre>{{this.playerFactionFormGroup.value | json}}</pre> -->

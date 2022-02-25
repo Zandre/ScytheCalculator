@@ -58,7 +58,9 @@ export class PlayerFactionModel implements PlayerFaction {
     }
 
     static createEmpty(): PlayerFactionModel {
-        return new PlayerFactionModel();
+        const model = new PlayerFactionModel();
+        model.id = 0;
+        return model;
     }
 
 }

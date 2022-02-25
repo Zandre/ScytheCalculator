@@ -1,7 +1,10 @@
 import { Component, OnInit, ChangeDetectionStrategy, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Store } from '@ngrx/store';
 import { IFormGroup, RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { PlayerFaction } from '../interfaces/player-faction.interface';
+import { PlayerFactionPageActions } from '../state/actions';
+import { PlayerFactionState } from '../state/player-faction.reducer';
 import { PlayerFactionModel } from './models/player-faction.model';
 
 @Component({
@@ -13,6 +16,8 @@ import { PlayerFactionModel } from './models/player-faction.model';
 export class PlayerFactionDialogComponent implements OnInit {
 
   playerFactionFormGroup: IFormGroup<PlayerFactionModel>;
+  model: PlayerFactionModel;
+
   popularityArray = Array.from({length: 18}, (_, i) => i + 1);
   victoryStarsArray = Array.from({length: 6}, (_, i) => i + 1);
   territoriesArray = Array.from({length: 30}, (_, i) => i + 1);
@@ -22,19 +27,36 @@ export class PlayerFactionDialogComponent implements OnInit {
   
   constructor(@Inject(MAT_DIALOG_DATA) public _model: PlayerFaction,
   private readonly _rxFormBuilder: RxFormBuilder,
-  private _dialogRef: MatDialogRef<PlayerFactionDialogComponent, PlayerFactionModel>) { }
+  private _dialogRef: MatDialogRef<PlayerFactionDialogComponent, PlayerFactionModel>,
+  private store: Store<PlayerFactionState>,) { }
 
   ngOnInit(): void {
-    this.playerFactionFormGroup = this._rxFormBuilder.formGroup(PlayerFactionModel) as IFormGroup<PlayerFactionModel>;
+
+    if(this._model) {
+      this.model = PlayerFactionModel.createFromInput(this._model);
+    } else {
+      this.model = PlayerFactionModel.createEmpty();
+    }
+
+    this.playerFactionFormGroup = this._rxFormBuilder.formGroup(this.model) as IFormGroup<PlayerFactionModel>;
   }
 
   closeDialog(): void {
-    console.log("Close clicked");
     this._dialogRef.close();
   }
 
   saveDialog(): void {
-    console.log("Save clicked");
+
+    if(this.playerFactionFormGroup.invalid){
+      return;
+    }
+
+    if (this.playerFactionFormGroup.value.id === 0) {
+      this.store.dispatch(PlayerFactionPageActions.createPlayerFaction({ playerFaction: this.playerFactionFormGroup.value }));
+    } else {
+      this.store.dispatch(PlayerFactionPageActions.updatePlayerFaction({ playerFaction: this.playerFactionFormGroup.value }));
+    }
+
     this._dialogRef.close();
   }
 

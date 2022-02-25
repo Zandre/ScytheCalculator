@@ -16,9 +16,7 @@ export class NewPlayerFactionCardComponent implements OnInit {
   }
 
   addNewPlayerFaction(): void {
-    console.log('Add new player clicked');
-
-    const dialogRef = this.dialog.open(PlayerFactionDialogComponent, {
+     this.dialog.open(PlayerFactionDialogComponent, {
       width: '400px',
       data: null
     });
