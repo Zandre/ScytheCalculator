@@ -1,4 +1,10 @@
-<mat-card class="card">
+<mat-card class="card" [ngClass]="{'polania-shadow' : this.model.playerFactionType === this.polaniaFaction,
+                                    'saxony-shadow' : this.model.playerFactionType === this.saxonyFaction,
+                                    'crimea-shadow' : this.model.playerFactionType === this.crimeaFaction,
+                                    'nordic-shadow' : this.model.playerFactionType === this.nordicFaction,
+                                    'rusviet-shadow' : this.model.playerFactionType === this.rusvietFaction,
+                                    'albion-shadow' : this.model.playerFactionType === this.albionFaction,
+                                    'togawa-shadow' : this.model.playerFactionType === this.togawaFaction}">
     <mat-card-header>
       <div mat-card-avatar [ngClass]="{'header-image-polania' : this.model.playerFactionType === this.polaniaFaction,
                                         'header-image-saxony' : this.model.playerFactionType === this.saxonyFaction,
