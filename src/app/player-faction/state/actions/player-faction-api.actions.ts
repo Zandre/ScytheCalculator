@@ -40,3 +40,12 @@ export const deleteFailure = createAction(
     '[Player Faction API] Delete Failure',
     props<{ error: string }>()
 );
+
+export const deleteAllSuccess = createAction(
+    '[Player Faction API] Delete All Success'
+);
+
+export const deleteAllFailure = createAction(
+    '[Player Faction API] Delete All Failure',
+    props<{ error: string }>()
+);

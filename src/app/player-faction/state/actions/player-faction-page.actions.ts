@@ -6,14 +6,16 @@ export const loadPlayerFactions = createAction('[Player Faction Page] Load');
 export const updatePlayerFaction = createAction(
     '[Player Faction Page] Update',
     props<{ playerFaction: PlayerFaction }>()
-)
+);
 
 export const createPlayerFaction = createAction(
     '[Player Faction Page] Create',
     props<{ playerFaction: PlayerFaction }>()
-)
+);
 
 export const deletePlayerFaction = createAction(
-    '[Player Faction Page] Delete',
+    '[Player Faction Page] Delete 1 Faction',
     props<{ playerFactionId: number }>()
-)
+);
+
+export const deleteAllPlayerFactions = createAction('[Player Faction Page] Delete All Factions');

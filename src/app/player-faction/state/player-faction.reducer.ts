@@ -1,6 +1,7 @@
 import { createReducer, on } from "@ngrx/store";
 import { PlayerFaction } from "../interfaces/player-faction.interface";
 import { PlayerFactionApiActions } from "./actions";
+import { deleteAllFailure } from "./actions/player-faction-api.actions";
 
 export interface PlayerFactionState {
     playerFactions: PlayerFaction[];
@@ -41,5 +42,11 @@ export const playerFactionReducer = createReducer<PlayerFactionState>(
             ...state,
             playerFactions: state.playerFactions.filter(faction => faction.id !== action.playerFactionId)
         };
+    }),
+    on(PlayerFactionApiActions.deleteAllSuccess, (state, action): PlayerFactionState => {
+        return {
+            ...state,
+            playerFactions: []
+        }
     })
 )

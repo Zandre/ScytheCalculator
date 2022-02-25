@@ -43,6 +43,15 @@ export class PlayerFactionService {
             );
     }
 
+    deleteAllPlayerFactions(): Observable<{}> {
+        const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+        return this.http.delete(this.playerFactionsUrl, {headers})
+            .pipe(
+                tap(data => console.log(JSON.stringify(data))),
+                catchError(this.handleError)
+            );
+    }
+
     updatePlayerFaction(playerFaction: PlayerFaction): Observable<PlayerFaction> {
         const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
         const url = `${this.playerFactionsUrl}/${playerFaction.id}`;

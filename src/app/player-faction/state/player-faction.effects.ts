@@ -57,5 +57,17 @@ export class PlayerFactionEffects {
                 )
             )
         );
-    });    
+    }); 
+    
+    deleteAllPlayerFactions$ = createEffect(() => {
+        return this.actions$.pipe(
+            ofType(PlayerFactionPageActions.deleteAllPlayerFactions),
+            concatMap(action => this.playerFactionService.deleteAllPlayerFactions()
+                .pipe(
+                    map(() => PlayerFactionApiActions.deleteAllSuccess()),
+                    catchError(error => of(PlayerFactionApiActions.deleteAllFailure({ error })))
+                )
+            )
+        );
+    });
 }
