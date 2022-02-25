@@ -10,14 +10,18 @@ const initialState: PlayerFactionState = {
     playerFactions: []
 }
 
-// TODO: implement error handling
-
 export const playerFactionReducer = createReducer<PlayerFactionState>(
     initialState,
     on(PlayerFactionApiActions.loadSuccess, (state, action): PlayerFactionState => {
         return {
             ...state,
             playerFactions: action.playerFactions
+        };
+    }),
+    on(PlayerFactionApiActions.loadFailure, (state, action): PlayerFactionState => {
+        // TODO: implement error handling
+        return {
+            ...state,
         };
     }),
     on(PlayerFactionApiActions.createSuccess, (state, action): PlayerFactionState => {
@@ -27,6 +31,7 @@ export const playerFactionReducer = createReducer<PlayerFactionState>(
         };
     }),
     on(PlayerFactionApiActions.createFailure, (state, action): PlayerFactionState => {
+        // TODO: implement error handling
         return {
             ...state,
         };
@@ -41,10 +46,22 @@ export const playerFactionReducer = createReducer<PlayerFactionState>(
             playerFactions: updatedPlayerFactions
         };
     }),
+    on(PlayerFactionApiActions.updateFailure, (state, action): PlayerFactionState => {
+        // TODO: implement error handling
+        return {
+            ...state,
+        };
+    }),
     on(PlayerFactionApiActions.deleteSuccess, (state, action): PlayerFactionState => {
         return {
             ...state,
             playerFactions: state.playerFactions.filter(faction => faction.id !== action.playerFactionId)
         };
-    })
+    }),
+    on(PlayerFactionApiActions.deleteFailure, (state, action): PlayerFactionState => {
+        // TODO: implement error handling
+        return {
+            ...state,
+        };
+    }),
 )
