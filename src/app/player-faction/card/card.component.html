@@ -19,7 +19,7 @@
     <img mat-card-image src="./../../../assets/img/scythe/character_img/{{model.imageName}}.jpg"> 
     <mat-card-content>
       <div fxLayout="row" fxLayoutAlign="center center">
-        <h1>$90</h1>
+        <h1><mat-icon>paid</mat-icon>{{this.model.TOTAL}}</h1>
       </div>
       <div fxLayout="row" fxLayoutGap="1em" fxLayoutAlign="start center" class="total">
         <mat-icon fxLayout="15" matBadge="{{this.model.popularity}}" matBadgeColor="accent" matBadgeSize="small" matTooltip="Popularity">favorite</mat-icon>
@@ -27,28 +27,28 @@
       </div>
       <div fxLayout="row" fxLayoutGap="1em" fxLayoutAlign="start center" class="total">
         <mat-icon fxLayout="15" matBadge="{{this.model.victoryStars}}" matBadgeSize="small" matTooltip="Victory stars">star</mat-icon>
-        <mat-progress-bar fxLayout="70" mode="determinate" value="40"></mat-progress-bar>
-        <span fxLayout="15">$15</span>
+        <mat-progress-bar fxLayout="70" mode="determinate" [value]="this.model.victoryStarMoney"></mat-progress-bar>
+        <span fxLayout="15">${{this.model.victoryStarMoney}}</span>
       </div>
       <div fxLayout="row" fxLayoutGap="1em" fxLayoutAlign="start center" class="total">
         <mat-icon fxLayout="15" matBadge="{{this.model.territories}}" matBadgeSize="small" matTooltip="Territories">hexagon</mat-icon>
-        <mat-progress-bar fxLayout="70" mode="determinate" value="60"></mat-progress-bar>
-        <span fxLayout="15">$15</span>
+        <mat-progress-bar fxLayout="70" mode="determinate" [value]="this.model.territoryMoney"></mat-progress-bar>
+        <span fxLayout="15">${{this.model.territoryMoney}}</span>
       </div>
       <div fxLayout="row" fxLayoutGap="1em" fxLayoutAlign="start center" class="total">
         <mat-icon fxLayout="15" matBadge="{{this.model.resources}}" matBadgeSize="small" matTooltip="Resources">forest</mat-icon>
-        <mat-progress-bar fxLayout="70" mode="determinate" value="30"></mat-progress-bar>
-        <span fxLayout="15">$15</span>
+        <mat-progress-bar fxLayout="70" mode="determinate" [value]="this.model.resourceMoney"></mat-progress-bar>
+        <span fxLayout="15">${{this.model.resourceMoney}}</span>
       </div>
       <div fxLayout="row" fxLayoutGap="1em" fxLayoutAlign="start center" class="total">
         <mat-icon fxLayout="15" matBadge="{{this.model.money}}" matBadgeSize="small" matTooltip="Money">paid</mat-icon>
-        <mat-progress-bar fxLayout="70" mode="determinate" value="12"></mat-progress-bar>
-        <span fxLayout="15">$15</span>
+        <mat-progress-bar fxLayout="70" mode="determinate" [value]="this.model.money"></mat-progress-bar>
+        <span fxLayout="15">${{this.model.money}}</span>
       </div>
       <div fxLayout="row" fxLayoutGap="1em" fxLayoutAlign="start center" class="total">
         <mat-icon fxLayout="15" matBadge="{{this.model.structureBonuses}}" matBadgeSize="small" matTooltip="Structure Bonuses">home</mat-icon>
-        <mat-progress-bar fxLayout="70" mode="determinate" value="9"></mat-progress-bar>
-        <span fxLayout="15">$15</span>
+        <mat-progress-bar fxLayout="70" mode="determinate" [value]="this.model.structureBonuses"></mat-progress-bar>
+        <span fxLayout="15">${{this.model.structureBonuses}}</span>
       </div>
     </mat-card-content>
     <mat-card-actions>

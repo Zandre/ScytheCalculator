@@ -17,6 +17,10 @@ export class CardModel implements PlayerFaction {
     factionName: string;
     factionCharacters: string;
     imageName: string;
+    victoryStarMoney: number;
+    territoryMoney: number;
+    resourceMoney: number;
+    TOTAL: number;
 
     static create(input: PlayerFaction): CardModel {
         const model = new CardModel();
@@ -68,7 +72,52 @@ export class CardModel implements PlayerFaction {
                 break;                                        
         }
 
+        model.victoryStarMoney = this.getVictoryStarMoney(model.victoryStars, model.popularity);
+        model.territoryMoney = this.getTerritoryMoney(model.territories, model.popularity);
+        model.resourceMoney = this.getResourceSMoney(model.resources, model.popularity);
+
+        model.TOTAL = model.victoryStarMoney + model.territoryMoney + model.resourceMoney + model.money + model.structureBonuses;
+
         return model;
+    }
+
+    static getVictoryStarMoney(victoryStars: number, popularity: number): number {
+        if(popularity > 12){
+            return victoryStars * 5;
+        }
+
+        if(popularity > 6){
+            return victoryStars * 4;
+        }
+
+        return victoryStars * 3
+    }
+
+    static getTerritoryMoney(territories: number, popularity: number): number {
+        if(popularity > 12){
+            return territories * 4;
+        }
+
+        if(popularity > 6){
+            return territories * 3;
+        }
+
+        return territories * 2
+    }
+
+    static getResourceSMoney(resources: number, popularity: number): number {
+
+        resources = Math.floor(resources/2);
+
+        if(popularity > 12){
+            return resources * 3;
+        }
+
+        if(popularity > 6){
+            return resources * 2;
+        }
+
+        return resources * 1
     }
 
 }
