@@ -19,6 +19,7 @@ import { PlayerFactionData } from './player-faction/database/player-faction.data
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
+import { ShellModule } from './player-faction/shell/shell.module';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { environment } from '../environments/environment';
     // App modules and components
     ToolbarModule,
     PlayerFactionModule,
-    EffectsModule.forRoot([])
+    EffectsModule.forRoot([]),
+    ShellModule
   ],
   providers: [],
   bootstrap: [AppComponent]
