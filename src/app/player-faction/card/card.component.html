@@ -53,7 +53,7 @@
     </mat-card-content>
     <mat-card-actions>
       <div fxLayout="row" fxLayoutGap="1em" fxLayoutAlign="start center">
-        <button mat-stroked-button color="accent">
+        <button mat-stroked-button color="accent" (click)="editClicked(this.model)">
           Edit <mat-icon>edit</mat-icon>
         </button>
         <button mat-stroked-button color="warn">

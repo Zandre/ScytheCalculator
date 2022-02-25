@@ -1,6 +1,8 @@
 import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { PlayerFactionType } from '../enums/player-faction-type.enum';
 import { PlayerFaction } from '../interfaces/player-faction.interface';
+import { PlayerFactionDialogComponent } from '../player-faction-dialog/player-faction-dialog.component';
 import { CardModel } from './models/card.model';
 
 @Component({
@@ -23,10 +25,17 @@ export class CardComponent implements OnInit {
   readonly albionFaction = PlayerFactionType.Albion;
   readonly togawaFaction = PlayerFactionType.Togawa;
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.model = CardModel.create(this.playerFaction);
+  }
+
+  editClicked(playerFaction: PlayerFaction): void {
+    this.dialog.open(PlayerFactionDialogComponent, {
+      width: '400px',
+      data: playerFaction
+    });
   }
 
 }

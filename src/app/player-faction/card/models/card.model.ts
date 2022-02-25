@@ -5,7 +5,7 @@ export class CardModel implements PlayerFaction {
     
     // interface properties
     id: number;
-    playerFactionType: PlayerFactionType;
+    playerFactionType: number;
     popularity: number;
     victoryStars: number;
     territories: number;

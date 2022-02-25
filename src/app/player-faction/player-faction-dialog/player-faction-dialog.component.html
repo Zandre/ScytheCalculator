@@ -5,13 +5,13 @@
     <mat-form-field>
         <mat-label>Faction</mat-label>
         <mat-select placeholder="Faction" formControlName="playerFactionType">
-          <mat-option value="1">Polania Republic</mat-option>
-          <mat-option value="2">Saxony Empire</mat-option>
-          <mat-option value="3">Crimean Khanate</mat-option>
-          <mat-option value="4">Nordic Kingdom</mat-option>
-          <mat-option value="5">Rusviet Union</mat-option>
-          <mat-option value="6">Clan Albion</mat-option>
-          <mat-option value="7">Togawa Shogunate</mat-option>
+          <mat-option [value]="1">Polania Republic</mat-option>
+          <mat-option [value]="2">Saxony Empire</mat-option>
+          <mat-option [value]="3">Crimean Khanate</mat-option>
+          <mat-option [value]="4">Nordic Kingdom</mat-option>
+          <mat-option [value]="5">Rusviet Union</mat-option>
+          <mat-option [value]="6">Clan Albion</mat-option>
+          <mat-option [value]="7">Togawa Shogunate</mat-option>
         </mat-select>
         <mat-error>
           {{ this.playerFactionFormGroup.controls.playerFactionType.errorMessage }}
@@ -90,6 +90,3 @@
         </button>
     </div>
 </mat-dialog-actions>
-
-
-<!-- <pre>{{this.playerFactionFormGroup.value | json}}</pre> -->
