@@ -48,6 +48,7 @@ export class PlayerFactionDialogComponent implements OnInit {
   saveDialog(): void {
 
     if(this.playerFactionFormGroup.invalid){
+      this.playerFactionFormGroup.markAllAsTouched();
       return;
     }
 
