@@ -7,3 +7,8 @@ export const getPlayerFactions = createSelector(
     getPlayerFactionFeatureState,
     state => state.playerFactions
 )
+
+export const getError = createSelector(
+    getPlayerFactionFeatureState,
+    state => state.error
+)

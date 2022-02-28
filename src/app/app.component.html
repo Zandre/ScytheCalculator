@@ -1,2 +1,3 @@
 <toolbar></toolbar>
-<player-faction-shell fxFlexFill [playerFactions]="playerFactions$ | async"></player-faction-shell>
+<player-faction-shell fxFlexFill [playerFactions]="playerFactions$ | async"
+    [error]="error$ | async"></player-faction-shell>
