@@ -36,11 +36,11 @@ import { ShellModule } from './player-faction/shell/shell.module';
     // NgRX
     StoreModule.forRoot({}, {}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    EffectsModule.forRoot([]),
 
     // App modules and components
     ToolbarModule,
     PlayerFactionModule,
-    EffectsModule.forRoot([]),
     ShellModule
   ],
   providers: [],
