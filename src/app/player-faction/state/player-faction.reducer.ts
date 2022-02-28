@@ -3,11 +3,13 @@ import { PlayerFaction } from "../interfaces/player-faction.interface";
 import { PlayerFactionApiActions } from "./actions";
 
 export interface PlayerFactionState {
-    playerFactions: PlayerFaction[];
+    playerFactions: PlayerFaction[],
+    error: string
 }
 
 const initialState: PlayerFactionState = {
-    playerFactions: []
+    playerFactions: [],
+    error: ''
 }
 
 export const playerFactionReducer = createReducer<PlayerFactionState>(
@@ -15,25 +17,28 @@ export const playerFactionReducer = createReducer<PlayerFactionState>(
     on(PlayerFactionApiActions.loadSuccess, (state, action): PlayerFactionState => {
         return {
             ...state,
-            playerFactions: action.playerFactions
+            playerFactions: action.playerFactions,
+            error: ''
         };
     }),
     on(PlayerFactionApiActions.loadFailure, (state, action): PlayerFactionState => {
-        // TODO: implement error handling
         return {
             ...state,
+            playerFactions: [],
+            error: action.error
         };
     }),
     on(PlayerFactionApiActions.createSuccess, (state, action): PlayerFactionState => {
         return {
             ...state,
-            playerFactions: [...state.playerFactions, action.playerFaction]
+            playerFactions: [...state.playerFactions, action.playerFaction],
+            error: ''
         };
     }),
     on(PlayerFactionApiActions.createFailure, (state, action): PlayerFactionState => {
-        // TODO: implement error handling
         return {
             ...state,
+            error: action.error
         };
     }),
     on(PlayerFactionApiActions.updateSuccess, (state, action): PlayerFactionState => {
@@ -43,25 +48,27 @@ export const playerFactionReducer = createReducer<PlayerFactionState>(
                 untouchedFaction)
         return {
             ...state,
-            playerFactions: updatedPlayerFactions
+            playerFactions: updatedPlayerFactions,
+            error: ''
         };
     }),
     on(PlayerFactionApiActions.updateFailure, (state, action): PlayerFactionState => {
-        // TODO: implement error handling
         return {
             ...state,
+            error: action.error
         };
     }),
     on(PlayerFactionApiActions.deleteSuccess, (state, action): PlayerFactionState => {
         return {
             ...state,
-            playerFactions: state.playerFactions.filter(faction => faction.id !== action.playerFactionId)
+            playerFactions: state.playerFactions.filter(faction => faction.id !== action.playerFactionId),
+            error: ''
         };
     }),
     on(PlayerFactionApiActions.deleteFailure, (state, action): PlayerFactionState => {
-        // TODO: implement error handling
         return {
             ...state,
+            error: action.error
         };
     }),
 )
