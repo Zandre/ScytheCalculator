@@ -5,6 +5,7 @@ import { PlayerFaction } from './player-faction/interfaces/player-faction.interf
 import { getError, getPlayerFactions } from './player-faction/state';
 import { PlayerFactionPageActions } from './player-faction/state/actions';
 import { PlayerFactionState } from './player-faction/state/player-faction.reducer';
+import { ValidationService } from './shared/services/validation.service';
 
 @Component({
   selector: 'app-root',
@@ -18,10 +19,14 @@ export class AppComponent implements OnInit {
   playerFactions$: Observable<PlayerFaction[]>;
   error$: Observable<string>;
 
-  constructor(private store: Store<PlayerFactionState>) {
+  constructor(
+    private validationService: ValidationService,
+    private store: Store<PlayerFactionState>) {
   }
 
   ngOnInit(): void {
+    this.validationService.setDefaultValidationMessages();
+
     this.playerFactions$ = this.store.select(getPlayerFactions);
     this.error$ = this.store.select(getError)
     this.store.dispatch(PlayerFactionPageActions.loadPlayerFactions());

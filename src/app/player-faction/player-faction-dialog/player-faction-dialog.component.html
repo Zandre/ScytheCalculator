@@ -4,7 +4,7 @@
 
     <mat-form-field>
         <mat-label>Faction</mat-label>
-        <mat-select placeholder="Faction" formControlName="playerFactionType">
+        <mat-select placeholder="Faction" formControlName="playerFactionType" required>
           <mat-option [value]="1">Polania Republic</mat-option>
           <mat-option [value]="2">Saxony Empire</mat-option>
           <mat-option [value]="3">Crimean Khanate</mat-option>
@@ -20,7 +20,7 @@
 
     <mat-form-field>
       <mat-label>Popularity</mat-label>
-      <mat-select placeholder="Popularity" formControlName="popularity">
+      <mat-select placeholder="Popularity" formControlName="popularity" required>
         <mat-option *ngFor="let item of this.popularityArray; index as i" [value]="item">{{item}}</mat-option>
       </mat-select>
       <mat-error>
@@ -30,7 +30,7 @@
 
     <mat-form-field>
       <mat-label>Victory Stars</mat-label>
-      <mat-select placeholder="Victory Stars" formControlName="victoryStars">
+      <mat-select placeholder="Victory Stars" formControlName="victoryStars" required>
         <mat-option *ngFor="let item of this.victoryStarsArray; index as i" [value]="item">{{item}}</mat-option>
       </mat-select>
       <mat-error>
@@ -40,7 +40,7 @@
     
     <mat-form-field>
       <mat-label>Territories</mat-label>
-      <mat-select placeholder="Territories" formControlName="territories">
+      <mat-select placeholder="Territories" formControlName="territories" required>
         <mat-option *ngFor="let item of this.territoriesArray; index as i" [value]="item">{{item}}</mat-option>
       </mat-select>
       <mat-error>
@@ -50,7 +50,7 @@
 
     <mat-form-field>
       <mat-label>Resources</mat-label>
-      <mat-select placeholder="Resources" formControlName="resources">
+      <mat-select placeholder="Resources" formControlName="resources" required>
         <mat-option *ngFor="let item of this.resourcesArray; index as i" [value]="item">{{item}}</mat-option>
       </mat-select>
       <mat-error>
@@ -60,7 +60,7 @@
 
     <mat-form-field>
       <mat-label>Money</mat-label>
-      <mat-select placeholder="Money" formControlName="money">
+      <mat-select placeholder="Money" formControlName="money" required>
         <mat-option *ngFor="let item of this.moneyArray; index as i" [value]="item">{{item}}</mat-option>
       </mat-select>
       <mat-error>
@@ -70,7 +70,7 @@
 
     <mat-form-field>
       <mat-label>Structure Bonuses</mat-label>
-      <mat-select placeholder="Structure Bonuses" formControlName="structureBonuses">
+      <mat-select placeholder="Structure Bonuses" formControlName="structureBonuses" required>
         <mat-option *ngFor="let item of this.structureBonusesArray; index as i" [value]="item">{{item}}</mat-option>
       </mat-select>
       <mat-error>
