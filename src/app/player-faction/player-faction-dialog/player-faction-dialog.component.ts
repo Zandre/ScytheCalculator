@@ -2,6 +2,7 @@ import { Component, OnInit, ChangeDetectionStrategy, Inject } from '@angular/cor
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 import { IFormGroup, RxFormBuilder } from '@rxweb/reactive-form-validators';
+import { ToastrService } from 'ngx-toastr';
 import { PlayerFaction } from '../interfaces/player-faction.interface';
 import { PlayerFactionService } from '../services/player-faction.service';
 import { PlayerFactionPageActions } from '../state/actions';
@@ -32,7 +33,8 @@ export class PlayerFactionDialogComponent implements OnInit {
   private readonly _rxFormBuilder: RxFormBuilder,
   private _dialogRef: MatDialogRef<PlayerFactionDialogComponent, PlayerFactionModel>,
   private store: Store<PlayerFactionState>,
-  private playerFactionService: PlayerFactionService) { }
+  private playerFactionService: PlayerFactionService,
+  private toastr: ToastrService) { }
 
   ngOnInit(): void {
 
@@ -65,13 +67,13 @@ export class PlayerFactionDialogComponent implements OnInit {
 
     if(this.playerFactionFormGroup.value.id === 0 && 
       this.existingPlayerFactions.find(p => p.playerFactionType === this.playerFactionFormGroup.value.playerFactionType)) {
-        console.log('Player Faction already exists')
+        this.toastr.warning('This player faction already exists', 'Choose a different player faction');
         return;
     }
 
     if(this.playerFactionFormGroup.value.id !== 0 &&
       this.existingPlayerFactions.find(p => p.playerFactionType === this.playerFactionFormGroup.value.playerFactionType && p.id !== this.playerFactionFormGroup.value.id)) {
-        console.log('Player Faction already exists')
+        this.toastr.warning('This player faction already exists', 'Choose a different player faction');
         return;
     } 
 
