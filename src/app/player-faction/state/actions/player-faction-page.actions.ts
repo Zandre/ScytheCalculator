@@ -14,6 +14,8 @@ export const createPlayerFaction = createAction(
 );
 
 export const deletePlayerFaction = createAction(
-    '[Player Faction Page] Delete',
+    '[Player Faction Page] Delete single Player Faction',
     props<{ playerFactionId: number }>()
 );
+
+export const deleteAllPlayerFactions = createAction('[Player Faction Page] Delete All Player Factions');

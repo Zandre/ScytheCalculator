@@ -71,4 +71,17 @@ export const playerFactionReducer = createReducer<PlayerFactionState>(
             error: action.error
         };
     }),
+    on(PlayerFactionApiActions.deleteAllSuccess, (state, action): PlayerFactionState => {
+        return {
+            ...state,
+            playerFactions: [],
+            error: ''
+        };
+    }),
+    on(PlayerFactionApiActions.deleteAllFailure, (state, action): PlayerFactionState => {
+        return {
+            ...state,
+            error: action.error
+        };
+    }),
 )

@@ -45,8 +45,7 @@ export class PlayerFactionService {
     }
 
     deleteAllPlayerFactions(): Observable<{}> {
-        const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-        return this.http.delete(this.playerFactionsUrl, {headers})
+        return this.http.post('commands/resetDb', { clear: true })
             .pipe(
                 tap(data => console.log(JSON.stringify(data))),
                 catchError(this.handleError)

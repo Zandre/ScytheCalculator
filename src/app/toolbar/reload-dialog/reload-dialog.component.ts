@@ -1,8 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
-import { PlayerFaction } from 'src/app/player-faction/interfaces/player-faction.interface';
-import { PlayerFactionService } from 'src/app/player-faction/services/player-faction.service';
 import { PlayerFactionPageActions } from 'src/app/player-faction/state/actions';
 import { PlayerFactionState } from 'src/app/player-faction/state/player-faction.reducer';
 
@@ -14,7 +12,7 @@ import { PlayerFactionState } from 'src/app/player-faction/state/player-faction.
 })
 export class ReloadDialogComponent implements OnInit {
 
-  constructor(private playerFactionService: PlayerFactionService,
+  constructor(
     private _dialogRef: MatDialogRef<ReloadDialogComponent, null>,
     private store: Store<PlayerFactionState>) {
    }
@@ -24,17 +22,7 @@ export class ReloadDialogComponent implements OnInit {
   }
 
   reloadClicked(): void {
-
-    // This could be more elegant?
-
-    this.playerFactionService.getPlayerFactions()
-      .subscribe((playerFactions: PlayerFaction[]) =>
-        playerFactions.map((playerFaction: PlayerFaction) => 
-          this.store.dispatch(PlayerFactionPageActions.deletePlayerFaction({ playerFactionId: playerFaction.id })
-          )
-        )
-      )
-
+    this.store.dispatch(PlayerFactionPageActions.deleteAllPlayerFactions());
     this._dialogRef.close();
   }
 
