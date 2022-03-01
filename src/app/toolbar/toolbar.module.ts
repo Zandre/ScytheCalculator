@@ -4,6 +4,7 @@ import { MatIconModule } from '@angular/material/icon';
 
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { ReloadDialogComponent } from './reload-dialog/reload-dialog.component';
+import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
@@ -18,6 +19,7 @@ import { MatDialogModule } from '@angular/material/dialog';
   imports: [
     MatToolbarModule,
     MatIconModule,
+    MatButtonModule,
     MatDialogModule,
   ]
 })
