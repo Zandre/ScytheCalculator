@@ -3,6 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 import { IFormGroup, RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { PlayerFaction } from '../interfaces/player-faction.interface';
+import { PlayerFactionService } from '../services/player-faction.service';
 import { PlayerFactionPageActions } from '../state/actions';
 import { PlayerFactionState } from '../state/player-faction.reducer';
 import { PlayerFactionModel } from './models/player-faction.model';
@@ -18,6 +19,8 @@ export class PlayerFactionDialogComponent implements OnInit {
   playerFactionFormGroup: IFormGroup<PlayerFactionModel>;
   model: PlayerFactionModel;
 
+  existingPlayerFactions: PlayerFaction[] = [];
+
   popularityArray = Array.from({length: 18}, (_, i) => i + 1);
   victoryStarsArray = Array.from({length: 6}, (_, i) => i + 1);
   territoriesArray = Array.from({length: 30}, (_, i) => i + 1);
@@ -28,7 +31,8 @@ export class PlayerFactionDialogComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public _model: PlayerFaction,
   private readonly _rxFormBuilder: RxFormBuilder,
   private _dialogRef: MatDialogRef<PlayerFactionDialogComponent, PlayerFactionModel>,
-  private store: Store<PlayerFactionState>) { }
+  private store: Store<PlayerFactionState>,
+  private playerFactionService: PlayerFactionService) { }
 
   ngOnInit(): void {
 
@@ -39,6 +43,13 @@ export class PlayerFactionDialogComponent implements OnInit {
     }
 
     this.playerFactionFormGroup = this._rxFormBuilder.formGroup(this.model) as IFormGroup<PlayerFactionModel>;
+
+    this.playerFactionService.getPlayerFactions()
+    .subscribe((playerFactions: PlayerFaction[]) =>
+      playerFactions.map((playerFaction: PlayerFaction) => 
+        this.existingPlayerFactions.push(playerFaction)
+      )
+    )
   }
 
   closeDialog(): void {
@@ -51,6 +62,18 @@ export class PlayerFactionDialogComponent implements OnInit {
       this.playerFactionFormGroup.markAllAsTouched();
       return;
     }
+
+    if(this.playerFactionFormGroup.value.id === 0 && 
+      this.existingPlayerFactions.find(p => p.playerFactionType === this.playerFactionFormGroup.value.playerFactionType)) {
+        console.log('Player Faction already exists')
+        return;
+    }
+
+    if(this.playerFactionFormGroup.value.id !== 0 &&
+      this.existingPlayerFactions.find(p => p.playerFactionType === this.playerFactionFormGroup.value.playerFactionType && p.id !== this.playerFactionFormGroup.value.id)) {
+        console.log('Player Faction already exists')
+        return;
+    } 
 
     if (this.playerFactionFormGroup.value.id === 0) {
       this.store.dispatch(PlayerFactionPageActions.createPlayerFaction({ playerFaction: this.playerFactionFormGroup.value }));
