@@ -31,4 +31,6 @@ export class AppComponent implements OnInit {
     this.error$ = this.store.select(getError)
     this.store.dispatch(PlayerFactionPageActions.loadPlayerFactions());
   }
+
+  // CI/CD test
 }
