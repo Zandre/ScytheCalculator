@@ -28,7 +28,11 @@ export class ToolbarComponent implements OnInit {
   }
 
   repositoryClicked(): void {
-    window.open('https://github.com/Zandre/ScytheCalculator', '_blank')
+    window.open('https://github.com/Zandre/ScytheCalculator', '_blank');
+  }
+
+  aboutDeveloperClicked(): void {
+    window.open('https://cvzandrebotha.azurewebsites.net/', '_blank');
   }
 
 }
