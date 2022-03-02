@@ -17,6 +17,7 @@ export class CardModel implements PlayerFaction {
     factionName: string;
     factionCharacters: string;
     imageName: string;
+    popularityPercentage: number;
     victoryStarMoney: number;
     territoryMoney: number;
     resourceMoney: number;
@@ -28,6 +29,7 @@ export class CardModel implements PlayerFaction {
         model.id = input.id;
         model.playerFactionType = input.playerFactionType;
         model.popularity = input.popularity;
+        model.popularityPercentage = (model.popularity/18)*100;
         model.victoryStars = input.victoryStars;
         model.territories = input.territories;
         model.resources = input.resources;
