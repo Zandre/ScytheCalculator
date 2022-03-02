@@ -1,27 +1,46 @@
 # ScytheCalculator
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.3.
+## Overview
 
-## Development server
+I recently (Feb 2022) completed a few training courses on Pluralsight and covered some interesting topics in Angular development, namely the [NgRX](https://ngrx.io/) framework. I find the best way to incorporate new-found knowledge is to use it in a small side-project that is fun to do and makes it easier to remember the new concepts. So, I built my own Scythe Calculator. Scythe is a strategic boardgame that I was introduced to a few years back, and I’ve taken quite a liking to it. The boardgame itself is complex, and the end-game calculations can be a nightmare. So why not automate them?
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Demo
 
-## Code scaffolding
+[Live demo](https://yellow-water-09e602b03.1.azurestaticapps.net/)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Credits
 
-## Build
+[Angular NgRX: Getting Started](https://www.pluralsight.com/courses/angular-ngrx-getting-started)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Angular version
 
-## Running unit tests
+```
+     _                      _                 ____ _     ___
+    / \   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
+   / △ \ | '_ \ / _` | | | | |/ _` | '__|   | |   | |    | |
+  / ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |
+ /_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
+                |___/
+    
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Angular CLI: 13.2.4
+Node: 16.14.0
+Package Manager: npm 8.5.0
+OS: win32 x64
 
-## Running end-to-end tests
+Angular: 13.2.3
+... animations, cdk, common, compiler, compiler-cli, core, forms
+... material, platform-browser, platform-browser-dynamic, router
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Package                         Version
+---------------------------------------------------------
+@angular-devkit/architect       0.1302.4
+@angular-devkit/build-angular   13.2.4
+@angular-devkit/core            13.2.4
+@angular-devkit/schematics      13.2.4
+@angular/cli                    13.2.4
+@angular/flex-layout            13.0.0-beta.38
+@schematics/angular             13.2.5
+rxjs                            7.5.4
+typescript                      4.5.5
+```
