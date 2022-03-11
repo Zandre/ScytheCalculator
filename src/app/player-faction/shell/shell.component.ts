@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { PlayerFaction } from '../interfaces/player-faction.interface';
+import { PlayerFactionModel } from '../models/player-faction.model';
 
 @Component({
   selector: 'player-faction-shell',
@@ -8,7 +8,7 @@ import { PlayerFaction } from '../interfaces/player-faction.interface';
 })
 
 export class ShellComponent {
-  @Input() playerFactions: PlayerFaction[];
-  @Input() winningPlayerFaction: PlayerFaction;
+  @Input() playerFactions: PlayerFactionModel[];
+  @Input() winningPlayerFaction: PlayerFactionModel;
   @Input() error: string;
 }

@@ -3,6 +3,7 @@ import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { of } from "rxjs";
 import { catchError, concatMap, map, mergeMap } from "rxjs/operators";
 import { PlayerFaction } from "../interfaces/player-faction.interface";
+import { PlayerFactionModel } from "../models/player-faction.model";
 import { PlayerFactionService } from "../services/player-faction.service";
 import { PlayerFactionPageActions, PlayerFactionApiActions } from "./actions";
 
@@ -40,10 +41,13 @@ export class PlayerFactionEffects {
             return null
         }
 
-        let sortedPlayerFactions: PlayerFaction[] = playerFactions.sort((a, b) => {
-            return b.money - a.money
-        })
+        let sortedPlayerFactions: PlayerFaction[] = playerFactions
+            .map(pf => PlayerFactionModel.create(pf))
+            .sort((a, b) => {
+                return b.TOTAL - a.TOTAL
+            })
 
+        // code doesn't cater for a draw    
         return sortedPlayerFactions[0];
     }
 

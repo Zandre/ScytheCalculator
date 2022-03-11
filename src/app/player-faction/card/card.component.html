@@ -1,67 +1,65 @@
-<mat-card class="card" [ngClass]="{'polania-shadow' : this.model.playerFactionType === this.polaniaFaction,
-                                    'saxony-shadow' : this.model.playerFactionType === this.saxonyFaction,
-                                    'crimea-shadow' : this.model.playerFactionType === this.crimeaFaction,
-                                    'nordic-shadow' : this.model.playerFactionType === this.nordicFaction,
-                                    'rusviet-shadow' : this.model.playerFactionType === this.rusvietFaction,
-                                    'albion-shadow' : this.model.playerFactionType === this.albionFaction,
-                                    'togawa-shadow' : this.model.playerFactionType === this.togawaFaction}">
-    <confetti *ngIf="this.model.id === this.winningPlayerFaction?.id"></confetti>
+<mat-card class="card" [ngClass]="{'polania-shadow' : this.playerFaction.playerFactionType === this.polaniaFaction,
+                                    'saxony-shadow' : this.playerFaction.playerFactionType === this.saxonyFaction,
+                                    'crimea-shadow' : this.playerFaction.playerFactionType === this.crimeaFaction,
+                                    'nordic-shadow' : this.playerFaction.playerFactionType === this.nordicFaction,
+                                    'rusviet-shadow' : this.playerFaction.playerFactionType === this.rusvietFaction,
+                                    'albion-shadow' : this.playerFaction.playerFactionType === this.albionFaction,
+                                    'togawa-shadow' : this.playerFaction.playerFactionType === this.togawaFaction}">
+    <confetti *ngIf="this.playerFaction.id === this.winningPlayerFaction?.id"></confetti>
     <mat-card-header>
-      <div mat-card-avatar [ngClass]="{'header-image-polania' : this.model.playerFactionType === this.polaniaFaction,
-                                        'header-image-saxony' : this.model.playerFactionType === this.saxonyFaction,
-                                        'header-image-crimea' : this.model.playerFactionType === this.crimeaFaction,
-                                        'header-image-nordic' : this.model.playerFactionType === this.nordicFaction,
-                                        'header-image-rusviet' : this.model.playerFactionType === this.rusvietFaction,
-                                        'header-image-albion' : this.model.playerFactionType === this.albionFaction,
-                                        'header-image-togawa' : this.model.playerFactionType === this.togawaFaction}"></div>
-      <mat-card-title>{{this.model.factionName}}</mat-card-title>
-      <mat-card-subtitle> {{this.model.factionCharacters}}</mat-card-subtitle>
+      <div mat-card-avatar [ngClass]="{'header-image-polania' : this.playerFaction.playerFactionType === this.polaniaFaction,
+                                        'header-image-saxony' : this.playerFaction.playerFactionType === this.saxonyFaction,
+                                        'header-image-crimea' : this.playerFaction.playerFactionType === this.crimeaFaction,
+                                        'header-image-nordic' : this.playerFaction.playerFactionType === this.nordicFaction,
+                                        'header-image-rusviet' : this.playerFaction.playerFactionType === this.rusvietFaction,
+                                        'header-image-albion' : this.playerFaction.playerFactionType === this.albionFaction,
+                                        'header-image-togawa' : this.playerFaction.playerFactionType === this.togawaFaction}"></div>
+      <mat-card-title>{{this.playerFaction.factionName}}</mat-card-title>
+      <mat-card-subtitle> {{this.playerFaction.factionCharacters}}</mat-card-subtitle>
     </mat-card-header>
-    <img mat-card-image src="./../../../assets/img/scythe/character_img/{{model.imageName}}.jpg"> 
+    <img mat-card-image src="./../../../assets/img/scythe/character_img/{{this.playerFaction.imageName}}.jpg"> 
     <mat-card-content>
       <div fxLayout="row" fxLayoutAlign="center center">
-        <h1><mat-icon>paid</mat-icon>{{this.model.TOTAL}}</h1>
+        <h1><mat-icon>paid</mat-icon>{{this.playerFaction.TOTAL}}</h1>
       </div>
       <div fxLayout="row" fxLayoutGap="1em" fxLayoutAlign="start center" class="total">
-        <mat-icon fxLayout="15" matBadge="{{this.model.popularity}}" matBadgeColor="accent" matBadgeSize="small" matTooltip="Popularity">favorite</mat-icon>
-        <mat-progress-bar fxLayout="70" mode="determinate" [value]="this.model.popularityPercentage" color="accent"></mat-progress-bar>
+        <mat-icon fxLayout="15" matBadge="{{this.playerFaction.popularity}}" matBadgeColor="accent" matBadgeSize="small" matTooltip="Popularity">favorite</mat-icon>
+        <mat-progress-bar fxLayout="70" mode="determinate" [value]="this.playerFaction.popularityPercentage" color="accent"></mat-progress-bar>
       </div>
       <div fxLayout="row" fxLayoutGap="1em" fxLayoutAlign="start center" class="total">
-        <mat-icon fxLayout="15" matBadge="{{this.model.victoryStars}}" matBadgeSize="small" matTooltip="Victory stars">star</mat-icon>
-        <mat-progress-bar fxLayout="70" mode="determinate" [value]="this.model.victoryStarMoney"></mat-progress-bar>
-        <span fxLayout="15">${{this.model.victoryStarMoney}}</span>
+        <mat-icon fxLayout="15" matBadge="{{this.playerFaction.victoryStars}}" matBadgeSize="small" matTooltip="Victory stars">star</mat-icon>
+        <mat-progress-bar fxLayout="70" mode="determinate" [value]="this.playerFaction.victoryStarMoney"></mat-progress-bar>
+        <span fxLayout="15">${{this.playerFaction.victoryStarMoney}}</span>
       </div>
       <div fxLayout="row" fxLayoutGap="1em" fxLayoutAlign="start center" class="total">
-        <mat-icon fxLayout="15" matBadge="{{this.model.territories}}" matBadgeSize="small" matTooltip="Territories">hexagon</mat-icon>
-        <mat-progress-bar fxLayout="70" mode="determinate" [value]="this.model.territoryMoney"></mat-progress-bar>
-        <span fxLayout="15">${{this.model.territoryMoney}}</span>
+        <mat-icon fxLayout="15" matBadge="{{this.playerFaction.territories}}" matBadgeSize="small" matTooltip="Territories">hexagon</mat-icon>
+        <mat-progress-bar fxLayout="70" mode="determinate" [value]="this.playerFaction.territoryMoney"></mat-progress-bar>
+        <span fxLayout="15">${{this.playerFaction.territoryMoney}}</span>
       </div>
       <div fxLayout="row" fxLayoutGap="1em" fxLayoutAlign="start center" class="total">
-        <mat-icon fxLayout="15" matBadge="{{this.model.resources}}" matBadgeSize="small" matTooltip="Resources">forest</mat-icon>
-        <mat-progress-bar fxLayout="70" mode="determinate" [value]="this.model.resourceMoney"></mat-progress-bar>
-        <span fxLayout="15">${{this.model.resourceMoney}}</span>
+        <mat-icon fxLayout="15" matBadge="{{this.playerFaction.resources}}" matBadgeSize="small" matTooltip="Resources">forest</mat-icon>
+        <mat-progress-bar fxLayout="70" mode="determinate" [value]="this.playerFaction.resourceMoney"></mat-progress-bar>
+        <span fxLayout="15">${{this.playerFaction.resourceMoney}}</span>
       </div>
       <div fxLayout="row" fxLayoutGap="1em" fxLayoutAlign="start center" class="total">
-        <mat-icon fxLayout="15" matBadge="{{this.model.money}}" matBadgeSize="small" matTooltip="Money">paid</mat-icon>
-        <mat-progress-bar fxLayout="70" mode="determinate" [value]="this.model.money"></mat-progress-bar>
-        <span fxLayout="15">${{this.model.money}}</span>
+        <mat-icon fxLayout="15" matBadge="{{this.playerFaction.money}}" matBadgeSize="small" matTooltip="Money">paid</mat-icon>
+        <mat-progress-bar fxLayout="70" mode="determinate" [value]="this.playerFaction.money"></mat-progress-bar>
+        <span fxLayout="15">${{this.playerFaction.money}}</span>
       </div>
       <div fxLayout="row" fxLayoutGap="1em" fxLayoutAlign="start center" class="total">
-        <mat-icon fxLayout="15" matBadge="{{this.model.structureBonuses}}" matBadgeSize="small" matTooltip="Structure Bonuses">home</mat-icon>
-        <mat-progress-bar fxLayout="70" mode="determinate" [value]="this.model.structureBonuses"></mat-progress-bar>
-        <span fxLayout="15">${{this.model.structureBonuses}}</span>
+        <mat-icon fxLayout="15" matBadge="{{this.playerFaction.structureBonuses}}" matBadgeSize="small" matTooltip="Structure Bonuses">home</mat-icon>
+        <mat-progress-bar fxLayout="70" mode="determinate" [value]="this.playerFaction.structureBonuses"></mat-progress-bar>
+        <span fxLayout="15">${{this.playerFaction.structureBonuses}}</span>
       </div>
     </mat-card-content>
     <mat-card-actions>
       <div fxLayout="row" fxLayoutGap="1em" fxLayoutAlign="start center">
-        <button mat-stroked-button color="accent" (click)="editClicked(this.model)">
+        <button mat-stroked-button color="accent" (click)="editClicked(this.playerFaction)">
           Edit <mat-icon>edit</mat-icon>
         </button>
-        <button mat-stroked-button color="warn" (click)="deleteClicked(this.model)">
+        <button mat-stroked-button color="warn" (click)="deleteClicked(this.playerFaction)">
           Delete <mat-icon>delete</mat-icon>
         </button>
       </div>
     </mat-card-actions>
   </mat-card>
-
-  <!-- <pre>{{model | json}}</pre> -->

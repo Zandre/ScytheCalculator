@@ -1,10 +1,10 @@
 import { createReducer, on } from "@ngrx/store";
-import { PlayerFaction } from "../interfaces/player-faction.interface";
+import { PlayerFactionModel } from "../models/player-faction.model";
 import { PlayerFactionApiActions } from "./actions";
 
 export interface PlayerFactionState {
-    playerFactions: PlayerFaction[],
-    winningPlayerFaction: PlayerFaction | null
+    playerFactions: PlayerFactionModel[],
+    winningPlayerFaction: PlayerFactionModel | null
     error: string
 }
 
@@ -19,7 +19,7 @@ export const playerFactionReducer = createReducer<PlayerFactionState>(
     on(PlayerFactionApiActions.loadSuccess, (state, action): PlayerFactionState => {
         return {
             ...state,
-            playerFactions: action.playerFactions,
+            playerFactions: action.playerFactions.map(pF => PlayerFactionModel.create(pF)),
             error: ''
         };
     }),
@@ -33,7 +33,7 @@ export const playerFactionReducer = createReducer<PlayerFactionState>(
     on(PlayerFactionApiActions.getWinningPlayerFactionSuccess, (state, action): PlayerFactionState => {
         return {
             ...state,
-            winningPlayerFaction: action.playerFaction,
+            winningPlayerFaction: action.playerFaction ? PlayerFactionModel.create(action.playerFaction) : null,
             error: ''
         };
     }),
@@ -46,7 +46,7 @@ export const playerFactionReducer = createReducer<PlayerFactionState>(
     on(PlayerFactionApiActions.createSuccess, (state, action): PlayerFactionState => {
         return {
             ...state,
-            playerFactions: [...state.playerFactions, action.playerFaction],
+            playerFactions: [...state.playerFactions, PlayerFactionModel.create(action.playerFaction)],
             error: ''
         };
     }),
@@ -63,7 +63,7 @@ export const playerFactionReducer = createReducer<PlayerFactionState>(
                 untouchedFaction)
         return {
             ...state,
-            playerFactions: updatedPlayerFactions,
+            playerFactions: updatedPlayerFactions.map(pF => PlayerFactionModel.create(pF)),
             error: ''
         };
     }),

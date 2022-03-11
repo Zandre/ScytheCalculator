@@ -4,7 +4,7 @@ import { DeletePlayerDialogComponent } from '../delete-player-dialog/delete-play
 import { PlayerFactionType } from '../enums/player-faction-type.enum';
 import { PlayerFaction } from '../interfaces/player-faction.interface';
 import { PlayerFactionDialogComponent } from '../player-faction-dialog/player-faction-dialog.component';
-import { CardModel } from './models/card.model';
+import { PlayerFactionModel } from '../models/player-faction.model';
 
 @Component({
   selector: 'faction-card',
@@ -14,10 +14,10 @@ import { CardModel } from './models/card.model';
 })
 export class CardComponent implements OnInit {
 
-  @Input() playerFaction: PlayerFaction;
-  @Input() winningPlayerFaction: PlayerFaction | null;
+  @Input() playerFaction: PlayerFactionModel;
+  @Input() winningPlayerFaction: PlayerFactionModel | null;
 
-  model: CardModel;
+  model: PlayerFactionModel;
 
   readonly polaniaFaction = PlayerFactionType.Polania;
   readonly saxonyFaction = PlayerFactionType.Saxony;
@@ -30,7 +30,7 @@ export class CardComponent implements OnInit {
   constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.model = CardModel.create(this.playerFaction);
+
   }
 
   editClicked(playerFaction: PlayerFaction): void {

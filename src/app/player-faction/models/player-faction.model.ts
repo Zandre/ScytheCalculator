@@ -1,7 +1,7 @@
-import { PlayerFactionType } from "../../enums/player-faction-type.enum";
-import { PlayerFaction } from "../../interfaces/player-faction.interface";
+import { PlayerFactionType } from "../enums/player-faction-type.enum";
+import { PlayerFaction } from "../interfaces/player-faction.interface";
 
-export class CardModel implements PlayerFaction {
+export class PlayerFactionModel implements PlayerFaction {
     
     // interface properties
     id: number;
@@ -23,8 +23,8 @@ export class CardModel implements PlayerFaction {
     resourceMoney: number;
     TOTAL: number;
 
-    static create(input: PlayerFaction): CardModel {
-        const model = new CardModel();
+    static create(input: PlayerFaction): PlayerFactionModel {
+        const model = new PlayerFactionModel();
 
         model.id = input.id;
         model.playerFactionType = input.playerFactionType;

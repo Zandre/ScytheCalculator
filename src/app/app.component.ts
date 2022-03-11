@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { PlayerFaction } from './player-faction/interfaces/player-faction.interface';
+import { PlayerFactionModel } from './player-faction/models/player-faction.model';
 import { getError, getPlayerFactions, getWinningPlayerFaction } from './player-faction/state';
 import { PlayerFactionPageActions } from './player-faction/state/actions';
 import { PlayerFactionState } from './player-faction/state/player-faction.reducer';
@@ -16,8 +16,8 @@ export class AppComponent implements OnInit {
 
   title = 'ScytheCalculator';
 
-  playerFactions$: Observable<PlayerFaction[]>;
-  winningPlayerFaction$:  Observable<PlayerFaction>;
+  playerFactions$: Observable<PlayerFactionModel[]>;
+  winningPlayerFaction$:  Observable<PlayerFactionModel>;
   error$: Observable<string>;
 
   constructor(
