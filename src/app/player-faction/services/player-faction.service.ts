@@ -44,7 +44,7 @@ export class PlayerFactionService {
             );
     }
 
-    deleteAllPlayerFactions(): Observable<{}> {
+    resetDatabase(): Observable<{}> {
         return this.http.post('commands/resetDb', { clear: true })
             .pipe(
                 tap(data => console.log(JSON.stringify(data))),

@@ -51,9 +51,9 @@ export const deleteFailure = createAction(
     props<{ error: string }>()
 );
 
-export const deleteAllSuccess = createAction('[Player Faction API] Delete All Success');
+export const resetDatabaseSuccess = createAction('[Player Faction API] Reset Database Success');
 
-export const deleteAllFailure = createAction(
-    '[Player Faction API] Delete All Failure',
+export const resetDatabaseFailure = createAction(
+    '[Player Faction API] Reset Database Failure',
     props<{ error: string }>()
 );

@@ -89,11 +89,11 @@ export class PlayerFactionEffects {
     
     deleteAllPlayerFactions$ = createEffect(() => {
         return this.actions$.pipe(
-            ofType(PlayerFactionPageActions.deleteAllPlayerFactions),
-            concatMap(() => this.playerFactionService.deleteAllPlayerFactions()
+            ofType(PlayerFactionPageActions.resetDatabase),
+            concatMap(() => this.playerFactionService.resetDatabase()
                 .pipe(
-                    map(() => PlayerFactionApiActions.deleteAllSuccess()),
-                    catchError(error => of(PlayerFactionApiActions.deleteAllFailure({ error })))
+                    map(() => PlayerFactionApiActions.resetDatabaseSuccess()),
+                    catchError(error => of(PlayerFactionApiActions.resetDatabaseFailure({ error })))
                 )
             )
         );
