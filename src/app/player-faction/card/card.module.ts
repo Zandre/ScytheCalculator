@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ConfettiModule } from './confetti/confetti.module';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatIconModule,
     MatTooltipModule,
     MatProgressBarModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    ConfettiModule
   ]
 })
 export class CardModule { }
