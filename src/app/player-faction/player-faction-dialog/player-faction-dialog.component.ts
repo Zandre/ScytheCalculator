@@ -83,6 +83,8 @@ export class PlayerFactionDialogComponent implements OnInit {
       this.store.dispatch(PlayerFactionPageActions.updatePlayerFaction({ playerFaction: this.playerFactionFormGroup.value }));
     }
 
+    this.store.dispatch(PlayerFactionPageActions.getWinningPlayerFaction());
+
     this._dialogRef.close();
   }
 

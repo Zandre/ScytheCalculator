@@ -3,6 +3,8 @@ import { PlayerFaction } from "../../interfaces/player-faction.interface";
 
 export const loadPlayerFactions = createAction('[Player Faction Page] Load');
 
+export const getWinningPlayerFaction = createAction('[Player Faction Page] Get Winning Player Faction');
+
 export const updatePlayerFaction = createAction(
     '[Player Faction Page] Update',
     props<{ playerFaction: PlayerFaction }>()

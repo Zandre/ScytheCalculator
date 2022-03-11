@@ -15,6 +15,7 @@ import { CardModel } from './models/card.model';
 export class CardComponent implements OnInit {
 
   @Input() playerFaction: PlayerFaction;
+  @Input() winningPlayerFaction: PlayerFaction | null;
 
   model: CardModel;
 

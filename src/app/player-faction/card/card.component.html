@@ -5,8 +5,7 @@
                                     'rusviet-shadow' : this.model.playerFactionType === this.rusvietFaction,
                                     'albion-shadow' : this.model.playerFactionType === this.albionFaction,
                                     'togawa-shadow' : this.model.playerFactionType === this.togawaFaction}">
-
-    <confetti></confetti>
+    <confetti *ngIf="this.model.id === this.winningPlayerFaction?.id"></confetti>
     <mat-card-header>
       <div mat-card-avatar [ngClass]="{'header-image-polania' : this.model.playerFactionType === this.polaniaFaction,
                                         'header-image-saxony' : this.model.playerFactionType === this.saxonyFaction,

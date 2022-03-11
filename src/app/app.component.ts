@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { PlayerFaction } from './player-faction/interfaces/player-faction.interface';
-import { getError, getPlayerFactions } from './player-faction/state';
+import { getError, getPlayerFactions, getWinningPlayerFaction } from './player-faction/state';
 import { PlayerFactionPageActions } from './player-faction/state/actions';
 import { PlayerFactionState } from './player-faction/state/player-faction.reducer';
 import { ValidationService } from './shared/services/validation.service';
@@ -17,6 +17,7 @@ export class AppComponent implements OnInit {
   title = 'ScytheCalculator';
 
   playerFactions$: Observable<PlayerFaction[]>;
+  winningPlayerFaction$:  Observable<PlayerFaction>;
   error$: Observable<string>;
 
   constructor(
@@ -28,9 +29,8 @@ export class AppComponent implements OnInit {
     this.validationService.setDefaultValidationMessages();
 
     this.playerFactions$ = this.store.select(getPlayerFactions);
+    this.winningPlayerFaction$ = this.store.select(getWinningPlayerFaction);
     this.error$ = this.store.select(getError)
     this.store.dispatch(PlayerFactionPageActions.loadPlayerFactions());
   }
-
-  // CI/CD test
 }

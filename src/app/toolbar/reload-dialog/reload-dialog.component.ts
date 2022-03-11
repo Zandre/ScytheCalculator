@@ -23,6 +23,7 @@ export class ReloadDialogComponent implements OnInit {
 
   reloadClicked(): void {
     this.store.dispatch(PlayerFactionPageActions.deleteAllPlayerFactions());
+    this.store.dispatch(PlayerFactionPageActions.getWinningPlayerFaction());
     this._dialogRef.close();
   }
 

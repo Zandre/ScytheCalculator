@@ -21,6 +21,7 @@ export class DeletePlayerDialogComponent implements OnInit {
 
   deleteClicked(): void {
     this.store.dispatch(PlayerFactionPageActions.deletePlayerFaction({ playerFactionId: this.playerFactionId }));
+    this.store.dispatch(PlayerFactionPageActions.getWinningPlayerFaction());
     this._dialogRef.close();
   }
 

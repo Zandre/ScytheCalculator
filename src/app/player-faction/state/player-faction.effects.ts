@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 import { of } from "rxjs";
 import { catchError, concatMap, map, mergeMap } from "rxjs/operators";
+import { PlayerFaction } from "../interfaces/player-faction.interface";
 import { PlayerFactionService } from "../services/player-faction.service";
 import { PlayerFactionPageActions, PlayerFactionApiActions } from "./actions";
 
@@ -22,6 +23,29 @@ export class PlayerFactionEffects {
             ))
         );
     });
+
+    getWinningPlayerFaction$ = createEffect(() => {
+        return this.actions$.pipe(
+            ofType(PlayerFactionPageActions.getWinningPlayerFaction),
+            mergeMap(() => this.playerFactionService.getPlayerFactions().pipe(
+                map(playerFactions => PlayerFactionApiActions.getWinningPlayerFactionSuccess({ playerFaction: this.getWinningPlayerFaction(playerFactions) })),
+                catchError(error => of(PlayerFactionApiActions.getWinningPlayerFactionFailure({ error })))
+            ))
+        );
+    });
+
+    private getWinningPlayerFaction(playerFactions: PlayerFaction[]): PlayerFaction {
+
+        if(playerFactions.length < 2) {
+            return null
+        }
+
+        let sortedPlayerFactions: PlayerFaction[] = playerFactions.sort((a, b) => {
+            return b.money - a.money
+        })
+
+        return sortedPlayerFactions[0];
+    }
 
     updatePlayerFactions$ = createEffect(() => {
         return this.actions$.pipe(

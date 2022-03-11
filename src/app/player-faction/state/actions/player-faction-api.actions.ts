@@ -11,6 +11,16 @@ export const loadFailure = createAction(
     props<{ error: string }>()
 );
 
+export const getWinningPlayerFactionSuccess = createAction(
+    '[Player Faction API] Get Winning Player Faction Success',
+    props<{ playerFaction: PlayerFaction }>()
+);
+
+export const getWinningPlayerFactionFailure = createAction(
+    '[Player Faction API] Get Winning Player Faction Failure',
+    props<{ error: string }>()
+);
+
 export const updateSuccess = createAction(
     '[Player Faction API] Update Success',
     props<{ playerFaction: PlayerFaction }>()

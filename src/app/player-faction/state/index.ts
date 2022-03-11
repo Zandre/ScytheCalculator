@@ -8,6 +8,11 @@ export const getPlayerFactions = createSelector(
     state => state.playerFactions
 )
 
+export const getWinningPlayerFaction = createSelector(
+    getPlayerFactionFeatureState,
+    state => state.winningPlayerFaction
+)
+
 export const getError = createSelector(
     getPlayerFactionFeatureState,
     state => state.error

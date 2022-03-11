@@ -4,11 +4,13 @@ import { PlayerFactionApiActions } from "./actions";
 
 export interface PlayerFactionState {
     playerFactions: PlayerFaction[],
+    winningPlayerFaction: PlayerFaction | null
     error: string
 }
 
 const initialState: PlayerFactionState = {
     playerFactions: [],
+    winningPlayerFaction: null,
     error: ''
 }
 
@@ -25,6 +27,19 @@ export const playerFactionReducer = createReducer<PlayerFactionState>(
         return {
             ...state,
             playerFactions: [],
+            error: action.error
+        };
+    }),
+    on(PlayerFactionApiActions.getWinningPlayerFactionSuccess, (state, action): PlayerFactionState => {
+        return {
+            ...state,
+            winningPlayerFaction: action.playerFaction,
+            error: ''
+        };
+    }),
+    on(PlayerFactionApiActions.getWinningPlayerFactionFailure, (state, action): PlayerFactionState => {
+        return {
+            ...state,
             error: action.error
         };
     }),

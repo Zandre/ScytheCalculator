@@ -9,5 +9,6 @@ import { PlayerFaction } from '../interfaces/player-faction.interface';
 
 export class ShellComponent {
   @Input() playerFactions: PlayerFaction[];
+  @Input() winningPlayerFaction: PlayerFaction;
   @Input() error: string;
 }

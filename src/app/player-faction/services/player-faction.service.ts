@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { catchError, map, Observable, tap, throwError } from "rxjs";
+import { catchError, combineLatest, map, Observable, tap, throwError } from "rxjs";
 import { PlayerFaction } from "../interfaces/player-faction.interface";
 import { getPlayerFactions } from "../state";
 
