@@ -6,7 +6,7 @@ I recently (Feb 2022) completed a few training courses on Pluralsight and covere
 
 ## Demo
 
-[Live demo](https://yellow-water-09e602b03.1.azurestaticapps.net/)
+[Live demo](https://gentle-tree-0711adb03.1.azurestaticapps.net/)
 
 ## Credits
 
