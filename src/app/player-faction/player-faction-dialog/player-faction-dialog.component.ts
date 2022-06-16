@@ -22,13 +22,13 @@ export class PlayerFactionDialogComponent implements OnInit {
 
   existingPlayerFactions: PlayerFaction[] = [];
 
-  popularityArray = Array.from({length: 18}, (_, i) => i + 1);
-  victoryStarsArray = Array.from({length: 6}, (_, i) => i + 1);
-  territoriesArray = Array.from({length: 30}, (_, i) => i + 1);
-  resourcesArray = Array.from({length: 50}, (_, i) => i + 1);
-  moneyArray = Array.from({length: 50}, (_, i) => i + 1);
-  structureBonusesArray = Array.from({length: 20}, (_, i) => i + 1);
-  
+  popularityArray = Array.from({length: 18}, (_, i) => i);
+  victoryStarsArray = Array.from({length: 6}, (_, i) => i);
+  territoriesArray = Array.from({length: 30}, (_, i) => i);
+  resourcesArray = Array.from({length: 50}, (_, i) => i);
+  moneyArray = Array.from({length: 50}, (_, i) => i);
+  structureBonusesArray = Array.from({length: 20}, (_, i) => i);
+
   constructor(@Inject(MAT_DIALOG_DATA) public _model: PlayerFaction,
   private readonly _rxFormBuilder: RxFormBuilder,
   private _dialogRef: MatDialogRef<PlayerFactionDialogComponent, PlayerFactionModel>,
@@ -48,7 +48,7 @@ export class PlayerFactionDialogComponent implements OnInit {
 
     this.playerFactionService.getPlayerFactions()
     .subscribe((playerFactions: PlayerFaction[]) =>
-      playerFactions.map((playerFaction: PlayerFaction) => 
+      playerFactions.map((playerFaction: PlayerFaction) =>
         this.existingPlayerFactions.push(playerFaction)
       )
     )
@@ -65,7 +65,7 @@ export class PlayerFactionDialogComponent implements OnInit {
       return;
     }
 
-    if(this.playerFactionFormGroup.value.id === 0 && 
+    if(this.playerFactionFormGroup.value.id === 0 &&
       this.existingPlayerFactions.find(p => p.playerFactionType === this.playerFactionFormGroup.value.playerFactionType)) {
         this.toastr.warning('This player faction already exists', 'Choose a different player faction');
         return;
@@ -75,7 +75,7 @@ export class PlayerFactionDialogComponent implements OnInit {
       this.existingPlayerFactions.find(p => p.playerFactionType === this.playerFactionFormGroup.value.playerFactionType && p.id !== this.playerFactionFormGroup.value.id)) {
         this.toastr.warning('This player faction already exists', 'Choose a different player faction');
         return;
-    } 
+    }
 
     if (this.playerFactionFormGroup.value.id === 0) {
       this.store.dispatch(PlayerFactionPageActions.createPlayerFaction({ playerFaction: this.playerFactionFormGroup.value }));
