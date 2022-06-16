@@ -15,7 +15,7 @@
                                         'header-image-albion' : this.playerFaction.playerFactionType === this.albionFaction,
                                         'header-image-togawa' : this.playerFaction.playerFactionType === this.togawaFaction}"></div>
       <mat-card-title>{{this.playerFaction.playerName}}</mat-card-title>
-      <mat-card-subtitle>{{this.playerFaction.factionName}} with {{this.playerFaction.factionCharacters}}</mat-card-subtitle>
+      <mat-card-subtitle><b>{{this.playerFaction.factionName}}</b> with {{this.playerFaction.factionCharacters}}</mat-card-subtitle>
     </mat-card-header>
     <img mat-card-image src="./../../../assets/img/scythe/character_img/{{this.playerFaction.imageName}}.jpg">
     <mat-card-content>

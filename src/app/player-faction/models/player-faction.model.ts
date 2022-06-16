@@ -51,7 +51,7 @@ export class PlayerFactionModel implements PlayerFaction {
                 break;
             case PlayerFactionType.Saxony:
                 model.factionName = "Saxony Empire";
-                model.factionCharacters = "Gunter von Duitsburg with Nacht & Tag";
+                model.factionCharacters = "Gunter von Duitsburg, Nacht & Tag";
                 model.imageName = "saxony";
                 break;
             case PlayerFactionType.Crimea:
