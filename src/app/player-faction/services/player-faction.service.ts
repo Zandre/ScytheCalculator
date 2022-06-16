@@ -29,7 +29,7 @@ export class PlayerFactionService {
         const newPlayerFaction = { ...playerFaction, id: Math.random() };
         return this.http.post<PlayerFaction>(this.playerFactionsUrl, newPlayerFaction, { headers })
             .pipe(
-                tap(data => console.log('create PlayerFaction: ', JSON.stringify(data))),
+                // tap(data => console.log('create PlayerFaction: ', JSON.stringify(data))),
                 catchError(this.handleError)
             );
     }
@@ -39,7 +39,7 @@ export class PlayerFactionService {
         const url = `${this.playerFactionsUrl}/${id}`;
         return this.http.delete<PlayerFaction>(url, { headers })
             .pipe(
-                tap(data => console.log('delete PlayerFaction: ', id)),
+                // tap(data => console.log('delete PlayerFaction: ', id)),
                 catchError(this.handleError)
             );
     }
@@ -47,7 +47,7 @@ export class PlayerFactionService {
     resetDatabase(): Observable<{}> {
         return this.http.post('commands/resetDb', { clear: true })
             .pipe(
-                tap(data => console.log(JSON.stringify(data))),
+                // tap(data => console.log(JSON.stringify(data))),
                 catchError(this.handleError)
             );
     }
@@ -57,7 +57,7 @@ export class PlayerFactionService {
         const url = `${this.playerFactionsUrl}/${playerFaction.id}`;
         return this.http.put<PlayerFaction>(url, playerFaction, { headers })
             .pipe(
-                tap(() => console.log('update PlayerFaction: ', playerFaction.id)),
+                // tap(() => console.log('update PlayerFaction: ', playerFaction.id)),
                 // return the player faction on an update
                 map(() => playerFaction),
                 catchError(this.handleError)
