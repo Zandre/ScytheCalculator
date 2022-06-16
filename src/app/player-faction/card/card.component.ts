@@ -35,7 +35,7 @@ export class CardComponent implements OnInit {
 
   editClicked(playerFaction: PlayerFaction): void {
     this.dialog.open(PlayerFactionDialogComponent, {
-      width: '400px',
+      width: '490px',
       data: playerFaction
     });
   }

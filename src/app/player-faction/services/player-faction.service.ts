@@ -18,7 +18,7 @@ export class PlayerFactionService {
     getPlayerFactions(): Observable<PlayerFaction[]> {
         return this.http.get<PlayerFaction[]>(this.playerFactionsUrl)
             .pipe(
-                tap(data => console.log(JSON.stringify(data))),
+                // tap(data => console.log(JSON.stringify(data))),
                 catchError(this.handleError)
             );
     }

@@ -17,7 +17,7 @@ export class NewPlayerFactionCardComponent implements OnInit {
 
   addNewPlayerFaction(): void {
      this.dialog.open(PlayerFactionDialogComponent, {
-      width: '400px',
+      width: '490px',
       data: null
     });
   }

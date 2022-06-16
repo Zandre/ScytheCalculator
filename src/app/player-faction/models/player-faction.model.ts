@@ -2,9 +2,10 @@ import { PlayerFactionType } from "../enums/player-faction-type.enum";
 import { PlayerFaction } from "../interfaces/player-faction.interface";
 
 export class PlayerFactionModel implements PlayerFaction {
-    
+
     // interface properties
     id: number;
+    playerName: string;
     playerFactionType: number;
     popularity: number;
     victoryStars: number;
@@ -27,6 +28,7 @@ export class PlayerFactionModel implements PlayerFaction {
         const model = new PlayerFactionModel();
 
         model.id = input.id;
+        model.playerName = input.playerName;
         model.playerFactionType = input.playerFactionType;
         model.popularity = input.popularity;
         model.popularityPercentage = (model.popularity/18)*100;
@@ -51,27 +53,27 @@ export class PlayerFactionModel implements PlayerFaction {
                 model.factionName = "Saxony Empire";
                 model.factionCharacters = "Gunter von Duitsburg with Nacht & Tag";
                 model.imageName = "saxony";
-                break;  
+                break;
             case PlayerFactionType.Crimea:
                 model.factionName = "Crimean Khanate";
                 model.factionCharacters = "Zehra & Kar";
                 model.imageName = "crimea";
-                break;  
+                break;
             case PlayerFactionType.Nordic:
                 model.factionName = "Nordic Kingdom";
                 model.factionCharacters = "Bjorn & Mox";
                 model.imageName = "nordic";
-                break;  
+                break;
             case PlayerFactionType.Rusviet:
                 model.factionName = "Rusviet Union";
                 model.factionCharacters = "Olga Romanova & Changa";
                 model.imageName = "rusviet";
-                break;  
+                break;
             case PlayerFactionType.Togawa:
                 model.factionName = "Togawa Shogunate";
                 model.factionCharacters = "Akiko & Jiro";
                 model.imageName = "togawa";
-                break;                                        
+                break;
         }
 
         model.victoryStarMoney = this.getVictoryStarMoney(model.victoryStars, model.popularity);
