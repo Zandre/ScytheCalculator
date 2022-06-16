@@ -9,6 +9,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
+import {MatInputModule} from '@angular/material/input';
 
 @NgModule({
   exports: [
@@ -24,6 +25,7 @@ import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
     MatFormFieldModule,
     MatIconModule,
     MatSelectModule,
+    MatInputModule,
     FormsModule,
     ReactiveFormsModule,
     RxReactiveFormsModule,

@@ -22,9 +22,9 @@ export class ToolbarComponent implements OnInit {
 
   addClicked(): void {
     this.dialog.open(PlayerFactionDialogComponent, {
-      width: '400px',
+      width: '490px',
       data: null
-    }); 
+    });
   }
 
   repositoryClicked(): void {
