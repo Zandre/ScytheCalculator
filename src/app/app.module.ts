@@ -23,6 +23,7 @@ import { PlayerFactionModule } from './player-faction/player-faction.module';
 
 // Database
 import { PlayerFactionData } from './player-faction/database/player-faction.data';
+import { StructureBonussesModule } from './structure-bonusses/structure-bonusses.module';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { PlayerFactionData } from './player-faction/database/player-faction.data
     // App modules and components
     ToolbarModule,
     PlayerFactionModule,
-    ShellModule
+    ShellModule,
+    StructureBonussesModule
   ],
   providers: [],
   bootstrap: [AppComponent]

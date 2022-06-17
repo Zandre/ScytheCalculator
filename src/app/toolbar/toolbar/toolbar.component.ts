@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PlayerFactionDialogComponent } from 'src/app/player-faction/player-faction-dialog/player-faction-dialog.component';
+import { StructureBonusDialogComponent } from 'src/app/structure-bonusses/structure-bonus-dialog/structure-bonus-dialog.component';
 import { ReloadDialogComponent } from '../reload-dialog/reload-dialog.component';
 
 @Component({
@@ -25,6 +26,10 @@ export class ToolbarComponent implements OnInit {
       width: '490px',
       data: null
     });
+  }
+
+  selectStructureBonusClicked(): void {
+    this.dialog.open(StructureBonusDialogComponent, {});
   }
 
   repositoryClicked(): void {
