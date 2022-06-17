@@ -20,11 +20,10 @@ import { AppComponent } from './app.component';
 import { ShellModule } from './player-faction/shell/shell.module';
 import { ToolbarModule } from './toolbar/toolbar.module';
 import { PlayerFactionModule } from './player-faction/player-faction.module';
-
-// Database
-import { PlayerFactionData } from './player-faction/database/player-faction.data';
 import { StructureBonussesModule } from './structure-bonusses/structure-bonusses.module';
 
+// Database
+import { ScytheData } from './shared/database/scythe.data';
 
 @NgModule({
   declarations: [
@@ -35,7 +34,8 @@ import { StructureBonussesModule } from './structure-bonusses/structure-bonusses
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(PlayerFactionData),
+    HttpClientInMemoryWebApiModule.forRoot(ScytheData),
+
     FlexLayoutModule,
 
     // NgRX
