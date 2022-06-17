@@ -9,19 +9,19 @@ import { StructureBonus } from "../interfaces/structure-bonus.interface";
     providedIn: 'root',
 })
 
-export class PlayerFactionService {
+export class StructureBonusService {
   private structureBonusUrl = 'api/structureBonus';
 
   constructor(private http: HttpClient) {
 
   }
 
-  getStructureBonus(): Observable<StructureBonus> {
-    return this.http.get<StructureBonus>(this.structureBonusUrl)
+  getStructureBonus(): Observable<StructureBonusType> {
+    return this.http.get<StructureBonusType>(this.structureBonusUrl)
         .pipe(catchError(this.handleError));
   }
 
-  updatePlayerFaction(type: StructureBonusType): Observable<StructureBonusType> {
+  updateStructureBonus(type: StructureBonusType): Observable<StructureBonusType> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const url = `${this.structureBonusUrl}`;
     return this.http.put<StructureBonus>(url, type, { headers })
