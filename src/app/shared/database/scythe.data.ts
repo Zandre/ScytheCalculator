@@ -5,7 +5,7 @@ import { PlayerFaction } from '../../player-faction/interfaces/player-faction.in
 export class ScytheData implements InMemoryDbService {
     createDb() {
         const playerFactions: PlayerFaction[] = [];
-        const bonusStructureType: StructureBonusType = 0;
-        return { playerFactions, bonusStructureType };
+        const structureBonusType: StructureBonusType = 0;
+        return { playerFactions, structureBonusType };
     }
 }

@@ -8,6 +8,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RxReactiveFormsModule } from '@rxweb/reactive-form-validators';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { structureBonusReducer } from './state/sructure-bonus.reducer';
+import { StructureBonusEffects } from './state/structure-bonus.effects';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -18,6 +22,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
   ],
   imports: [
     CommonModule,
+    StoreModule.forFeature('structureBonusType', structureBonusReducer),
+    EffectsModule.forFeature([StructureBonusEffects]),
     MatButtonModule,
     MatDialogModule,
     MatIconModule,

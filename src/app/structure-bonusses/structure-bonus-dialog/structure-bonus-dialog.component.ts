@@ -1,7 +1,12 @@
-import { Component, OnInit, ChangeDetectionStrategy, Inject } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Store } from '@ngrx/store';
 import { IFormGroup, RxFormBuilder } from '@rxweb/reactive-form-validators';
+import { PlayerFactionPageActions } from 'src/app/player-faction/state/actions';
+import { PlayerFactionState } from 'src/app/player-faction/state/player-faction.reducer';
 import { StructureBonus } from '../interfaces/structure-bonus.interface';
+import { StructureBonusPageActions } from '../state/actions';
+import { StructureBonusState } from '../state/sructure-bonus.reducer';
 import { StructureBonusModel } from './models/structure-bonus.model';
 
 @Component({
@@ -16,7 +21,9 @@ export class StructureBonusDialogComponent implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA) public _model: StructureBonus,
     private readonly _rxFormBuilder: RxFormBuilder,
-    private _dialogRef: MatDialogRef<StructureBonusDialogComponent, StructureBonusModel>) { }
+    private _dialogRef: MatDialogRef<StructureBonusDialogComponent, StructureBonusModel>,
+    private structureBonusStore: Store<StructureBonusState>,
+    private playerFactionStore: Store<PlayerFactionState>,) { }
 
   ngOnInit(): void {
     if(this._model) {
@@ -37,6 +44,15 @@ export class StructureBonusDialogComponent implements OnInit {
   }
 
   saveDialog(): void {
+
+    if(this.structureBonusFormGroup.invalid){
+      this.structureBonusFormGroup.markAllAsTouched();
+      return;
+    }
+
+    this.structureBonusStore.dispatch(StructureBonusPageActions.updateStructureBonus({ structureBonusType: this.structureBonusFormGroup.value.structureBonusType }));
+    this.playerFactionStore.dispatch(PlayerFactionPageActions.getWinningPlayerFaction());
+
     this._dialogRef.close();
   }
 

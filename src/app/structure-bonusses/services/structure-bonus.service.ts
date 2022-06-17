@@ -10,11 +10,9 @@ import { StructureBonus } from "../interfaces/structure-bonus.interface";
 })
 
 export class StructureBonusService {
-  private structureBonusUrl = 'api/structureBonus';
+  private structureBonusUrl = 'api/structureBonusType';
 
-  constructor(private http: HttpClient) {
-
-  }
+  constructor(private http: HttpClient) { }
 
   getStructureBonus(): Observable<StructureBonusType> {
     return this.http.get<StructureBonusType>(this.structureBonusUrl)

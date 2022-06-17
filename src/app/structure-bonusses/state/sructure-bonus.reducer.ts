@@ -1,6 +1,5 @@
 import { createReducer, on } from "@ngrx/store";
 import { StructureBonusType } from "../enums/structure-bonus-type.enum"
-import { StructureBonusModel } from "../structure-bonus-dialog/models/structure-bonus.model";
 import { StructureBonusApiActions } from "./actions";
 
 export interface StructureBonusState {
@@ -13,7 +12,7 @@ const initialState: StructureBonusState = {
   error: ''
 }
 
-export const playerFactionReducer = createReducer<StructureBonusState>(
+export const structureBonusReducer = createReducer<StructureBonusState>(
   initialState,
   on(StructureBonusApiActions.loadSuccess, (state, action): StructureBonusState => {
     return {
