@@ -1,8 +1,7 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { catchError, combineLatest, map, Observable, tap, throwError } from "rxjs";
+import { catchError, map, Observable, throwError } from "rxjs";
 import { PlayerFaction } from "../interfaces/player-faction.interface";
-import { getPlayerFactions } from "../state";
 
 @Injectable({
     providedIn: 'root',
