@@ -29,7 +29,7 @@ export class ToolbarComponent implements OnInit {
   }
 
   selectStructureBonusClicked(): void {
-    this.dialog.open(StructureBonusDialogComponent, {});
+    this.dialog.open(StructureBonusDialogComponent, { width: '350px' });
   }
 
   repositoryClicked(): void {

@@ -1,14 +1,35 @@
 <span class="h2" mat-dialog-title>Select the structure bonus type</span>
 <mat-dialog-content>
-    <span>words words words</span>
+
+  <form name="structureBonusFormGroup" id="form" [formGroup]="structureBonusFormGroup" fxLayout="column">
+    <mat-form-field fxFlex="100">
+      <mat-label>Structure Bonus Type</mat-label>
+      <mat-select placeholder="Structure Bonus Type" formControlName="structureBonusType" required>
+        <mat-option [value]="1">Adjacent To Tunnel Territories</mat-option>
+        <mat-option [value]="2">Adjacent To Lake Territories</mat-option>
+        <mat-option [value]="3">Adjacent To Encounter Tokens</mat-option>
+        <mat-option [value]="4">Number of Tunnel Territories</mat-option>
+        <mat-option [value]="5">Number of structures in a row</mat-option>
+        <mat-option [value]="6">Number of Farms or Tundra Territories</mat-option>
+      </mat-select>
+      <mat-error>
+        {{ this.structureBonusFormGroup.controls.structureBonusType.errorMessage }}
+      </mat-error>
+    </mat-form-field>
+  </form>
+
+  <img *ngIf="this.model.metaData?.imageName" src="./../../../assets/img/scythe/structure_bonus/{{this.model.metaData.imageName}}.PNG">
+  <br>
+  <span>{{this.model.metaData?.description}}</span>
+
 </mat-dialog-content>
 <mat-dialog-actions>
     <div fxLayout="row" fxLayoutGap="1em" fxLayoutAlign="start center">
-        <button mat-stroked-button color="warn">
-          Delete <mat-icon>delete</mat-icon>
-        </button>
-        <button mat-stroked-button>
-          Cancel <mat-icon>close</mat-icon>
-        </button>
+      <button mat-stroked-button color="primary" (click)="saveDialog()">
+        Save <mat-icon>save</mat-icon>
+      </button>
+      <button mat-stroked-button (click)="closeDialog()">
+        Cancel <mat-icon>close</mat-icon>
+      </button>
     </div>
 </mat-dialog-actions>
