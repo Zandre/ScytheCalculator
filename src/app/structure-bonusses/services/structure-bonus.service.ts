@@ -22,7 +22,7 @@ export class StructureBonusService {
   updateStructureBonus(type: StructureBonusType): Observable<StructureBonusType> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
     const url = `${this.structureBonusUrl}`;
-    return this.http.put<StructureBonus>(url, {id: 0, StructureBonusType: type}, { headers })
+    return this.http.put<StructureBonus>(url, {id: 0, structureBonusType: type}, { headers })
         .pipe(
             map(() => type),
             catchError(this.handleError)
