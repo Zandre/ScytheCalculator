@@ -48,7 +48,7 @@ export class ToolbarComponent implements OnInit {
     }
 
     this.dialog.open(PlayerFactionDialogComponent, {
-      width: '490px',
+      width: '545px',
       data: null
     });
   }
