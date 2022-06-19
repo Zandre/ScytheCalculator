@@ -1,4 +1,6 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { StructureBonusDialogComponent } from '../structure-bonus-dialog/structure-bonus-dialog.component';
 
 @Component({
   selector: 'structure-bonus-card',
@@ -8,9 +10,13 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 })
 export class StructureBonusCardComponent implements OnInit {
 
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
+  }
+
+  selectStructureBonusClicked(): void {
+    this.dialog.open(StructureBonusDialogComponent, { width: '350px' });
   }
 
 }
