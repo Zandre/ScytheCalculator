@@ -7,7 +7,6 @@ import { PlayerFactionPageActions } from './player-faction/state/actions';
 import { PlayerFactionState } from './player-faction/state/player-faction.reducer';
 import { ValidationService } from './shared/services/validation.service';
 import { StructureBonusType } from './structure-bonusses/enums/structure-bonus-type.enum';
-import { getStructureBonus } from './structure-bonusses/state';
 import { StructureBonusPageActions } from './structure-bonusses/state/actions';
 import { StructureBonusState } from './structure-bonusses/state/sructure-bonus.reducer';
 
@@ -17,8 +16,6 @@ import { StructureBonusState } from './structure-bonusses/state/sructure-bonus.r
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-
-  title = 'ScytheCalculator';
 
   playerFactions$: Observable<PlayerFactionModel[]>;
   structureBonus$: Observable<StructureBonusType>;
@@ -37,7 +34,6 @@ export class AppComponent implements OnInit {
     this.playerFactions$ = this.playerFactionStore.select(getPlayerFactions);
     this.winningPlayerFaction$ = this.playerFactionStore.select(getWinningPlayerFaction);
     this.error$ = this.playerFactionStore.select(getError)
-    this.structureBonus$ = this.structureBonusStore.select(getStructureBonus);
 
     this.playerFactionStore.dispatch(PlayerFactionPageActions.loadPlayerFactions());
     this.structureBonusStore.dispatch(StructureBonusPageActions.getStructureBonus());

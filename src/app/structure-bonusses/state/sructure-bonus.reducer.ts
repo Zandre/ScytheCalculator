@@ -17,7 +17,7 @@ export const structureBonusReducer = createReducer<StructureBonusState>(
   on(StructureBonusApiActions.loadSuccess, (state, action): StructureBonusState => {
     return {
         ...state,
-        structureBonusType: action.structureBonusType,
+        structureBonusType: action.structureBonus.structureBonusType,
         error: ''
     };
   }),

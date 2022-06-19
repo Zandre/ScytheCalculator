@@ -14,7 +14,7 @@ export class StructureBonusEffects {
         return this.actions$.pipe(
             ofType(StructureBonusPageActions.getStructureBonus),
             mergeMap(() => this.structureBonusService.getStructureBonus().pipe(
-                map(structureBonusType => StructureBonusApiActions.loadSuccess({ structureBonusType })),
+                map(structureBonus => StructureBonusApiActions.loadSuccess({ structureBonus })),
                 catchError(error => of(StructureBonusApiActions.loadFailure({ error })))
             ))
         );

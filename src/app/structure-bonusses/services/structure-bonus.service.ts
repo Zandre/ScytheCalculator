@@ -10,18 +10,18 @@ import { StructureBonus } from "../interfaces/structure-bonus.interface";
 })
 
 export class StructureBonusService {
-  private structureBonusUrl = 'api/structureBonus';
+  private structureBonusUrl = 'api/structureBonus/0';
 
   constructor(private http: HttpClient) { }
 
-  getStructureBonus(): Observable<StructureBonusType> {
-    return this.http.get<StructureBonusType>(this.structureBonusUrl)
+  getStructureBonus(): Observable<StructureBonus> {
+    return this.http.get<StructureBonus>(this.structureBonusUrl)
         .pipe(catchError(this.handleError));
   }
 
   updateStructureBonus(type: StructureBonusType): Observable<StructureBonusType> {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
-    const url = `${this.structureBonusUrl}/0`;
+    const url = `${this.structureBonusUrl}`;
     return this.http.put<StructureBonus>(url, {id: 0, StructureBonusType: type}, { headers })
         .pipe(
             map(() => type),

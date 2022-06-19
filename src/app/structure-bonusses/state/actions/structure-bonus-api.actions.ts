@@ -1,9 +1,10 @@
 import { createAction, props } from "@ngrx/store";
 import { StructureBonusType } from "../../enums/structure-bonus-type.enum";
+import { StructureBonus } from "../../interfaces/structure-bonus.interface";
 
 export const loadSuccess = createAction(
   '[Structure Bonus API] Load Success',
-  props<{ structureBonusType: StructureBonusType }>()
+  props<{ structureBonus: StructureBonus }>()
 );
 
 export const loadFailure = createAction(
