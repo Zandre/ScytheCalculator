@@ -5,6 +5,8 @@ import { StructureBonusMetaDataModel } from "../../models/structure-bonus-metada
 
 export class StructureBonusModel implements StructureBonus {
 
+  id: number;
+
   @prop()
   @required()
   structureBonusType: StructureBonusType;
@@ -18,6 +20,7 @@ export class StructureBonusModel implements StructureBonus {
 
   static createFromType(type: StructureBonusType): StructureBonusModel {
     const model = new StructureBonusModel();
+    model.id = 0;
     model.structureBonusType = type;
     model.metaData = StructureBonusMetaDataModel.createFromType(type);
     return model;
