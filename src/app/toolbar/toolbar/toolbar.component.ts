@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
+import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { PlayerFactionDialogComponent } from 'src/app/player-faction/player-faction-dialog/player-faction-dialog.component';
 import { StructureBonusType } from 'src/app/structure-bonusses/enums/structure-bonus-type.enum';
@@ -21,9 +22,10 @@ export class ToolbarComponent implements OnInit {
 
   structureBonus$: Observable<StructureBonusType>;
   metaData: StructureBonusMetaDataModel;
-  private structureBonusType: StructureBonusType
+  private structureBonusType: StructureBonusType;
 
   constructor(public dialog: MatDialog,
+    private toastr: ToastrService,
     private structureBonusStore: Store<StructureBonusState>) { }
 
   ngOnInit(): void {
@@ -31,7 +33,7 @@ export class ToolbarComponent implements OnInit {
     this.structureBonus$.subscribe((type: StructureBonusType) => {
       this.metaData = StructureBonusMetaDataModel.createFromType(type);
       this.structureBonusType = type;
-    })
+    });
   }
 
   reloadClicked(): void {
@@ -39,6 +41,12 @@ export class ToolbarComponent implements OnInit {
   }
 
   addClicked(): void {
+
+    if (!this.structureBonusType) {
+      this.toastr.warning('Please choose a structure bonus type before adding player factions', 'Structure Bonus type not set');
+      return;
+    }
+
     this.dialog.open(PlayerFactionDialogComponent, {
       width: '490px',
       data: null
