@@ -3,6 +3,9 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 import { IFormGroup, RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { ToastrService } from 'ngx-toastr';
+import { StructureBonus } from 'src/app/structure-bonusses/interfaces/structure-bonus.interface';
+import { StructureBonusMetaDataModel } from 'src/app/structure-bonusses/models/structure-bonus-metadata.model';
+import { StructureBonusService } from 'src/app/structure-bonusses/services/structure-bonus.service';
 import { PlayerFaction } from '../interfaces/player-faction.interface';
 import { PlayerFactionService } from '../services/player-faction.service';
 import { PlayerFactionPageActions } from '../state/actions';
@@ -13,12 +16,13 @@ import { PlayerFactionModel } from './models/player-faction.model';
   selector: 'player-faction-dialog',
   templateUrl: './player-faction-dialog.component.html',
   styleUrls: ['./player-faction-dialog.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class PlayerFactionDialogComponent implements OnInit {
 
   playerFactionFormGroup: IFormGroup<PlayerFactionModel>;
   model: PlayerFactionModel;
+  structureBonusMetaData: StructureBonusMetaDataModel;
 
   existingPlayerFactions: PlayerFaction[] = [];
 
@@ -27,13 +31,14 @@ export class PlayerFactionDialogComponent implements OnInit {
   territoriesArray = Array.from({length: 30}, (_, i) => i);
   resourcesArray = Array.from({length: 50}, (_, i) => i);
   moneyArray = Array.from({length: 50}, (_, i) => i);
-  structureBonusesArray = Array.from({length: 20}, (_, i) => i);
+  structureBonusesArray = Array.from({length: 7}, (_, i) => i);
 
   constructor(@Inject(MAT_DIALOG_DATA) public _model: PlayerFaction,
   private readonly _rxFormBuilder: RxFormBuilder,
   private _dialogRef: MatDialogRef<PlayerFactionDialogComponent, PlayerFactionModel>,
   private store: Store<PlayerFactionState>,
   private playerFactionService: PlayerFactionService,
+  private structureBonusService: StructureBonusService,
   private toastr: ToastrService) { }
 
   ngOnInit(): void {
@@ -52,6 +57,11 @@ export class PlayerFactionDialogComponent implements OnInit {
         this.existingPlayerFactions.push(playerFaction)
       )
     )
+
+    this.structureBonusService.getStructureBonus()
+    .subscribe((structureBonus: StructureBonus) => {
+      this.structureBonusMetaData = StructureBonusMetaDataModel.createFromType(structureBonus.structureBonusType);
+    });
   }
 
   closeDialog(): void {

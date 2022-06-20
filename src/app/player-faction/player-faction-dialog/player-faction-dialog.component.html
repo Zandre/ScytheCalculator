@@ -84,16 +84,17 @@
         </mat-error>
       </mat-form-field>
 
-      <mat-form-field>
-        <mat-label>Structure Bonuses</mat-label>
-        <mat-select placeholder="Structure Bonuses" formControlName="structureBonuses" required>
-          <mat-option *ngFor="let item of this.structureBonusesArray; index as i" [value]="item">{{item}}</mat-option>
-        </mat-select>
-        <mat-error>
-          {{ this.playerFactionFormGroup.controls.structureBonuses.errorMessage }}
-        </mat-error>
-      </mat-form-field>
     </div>
+
+    <mat-form-field fxFill *ngIf="this.structureBonusMetaData">
+      <mat-label>{{this.structureBonusMetaData.question}}</mat-label>
+      <mat-select [placeholder]="this.structureBonusMetaData.question" formControlName="structureBonuses" required>
+        <mat-option *ngFor="let item of this.structureBonusesArray; index as i" [value]="item">{{item}}</mat-option>
+      </mat-select>
+      <mat-error>
+        {{ this.playerFactionFormGroup.controls.structureBonuses.errorMessage }}
+      </mat-error>
+    </mat-form-field>
 
   </form>
 </mat-dialog-content>
