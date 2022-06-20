@@ -88,11 +88,11 @@
 
     <mat-form-field fxFill *ngIf="this.structureBonusMetaData">
       <mat-label>{{this.structureBonusMetaData.question}}</mat-label>
-      <mat-select [placeholder]="this.structureBonusMetaData.question" formControlName="structureBonuses" required>
+      <mat-select [placeholder]="this.structureBonusMetaData.question" formControlName="structureBonusTerritories" required>
         <mat-option *ngFor="let item of this.structureBonusesArray; index as i" [value]="item">{{item}}</mat-option>
       </mat-select>
       <mat-error>
-        {{ this.playerFactionFormGroup.controls.structureBonuses.errorMessage }}
+        {{ this.playerFactionFormGroup.controls.structureBonusTerritories.errorMessage }}
       </mat-error>
     </mat-form-field>
 

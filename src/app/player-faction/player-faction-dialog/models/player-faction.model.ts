@@ -45,7 +45,7 @@ export class PlayerFactionModel implements PlayerFaction {
     @prop()
     @required()
     @maxNumber({ value: 20 })
-    structureBonuses: number;
+    structureBonusTerritories: number;
 
     static createFromInput(input: PlayerFaction): PlayerFactionModel {
         const model = new PlayerFactionModel();
@@ -58,7 +58,7 @@ export class PlayerFactionModel implements PlayerFaction {
         model.territories = input.territories;
         model.resources = input.resources;
         model.money = input.money;
-        model.structureBonuses = input.structureBonuses;
+        model.structureBonusTerritories = input.structureBonusTerritories;
 
         return model;
     }

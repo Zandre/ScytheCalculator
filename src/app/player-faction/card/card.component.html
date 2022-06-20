@@ -47,9 +47,9 @@
         <span fxLayout="15">${{this.playerFaction.money}}</span>
       </div>
       <div fxLayout="row" fxLayoutGap="1em" fxLayoutAlign="start center" class="total">
-        <mat-icon fxLayout="15" matBadge="{{this.playerFaction.structureBonuses}}" matBadgeSize="small" matTooltip="Structure Bonuses">home</mat-icon>
-        <mat-progress-bar fxLayout="70" mode="determinate" [value]="this.playerFaction.structureBonuses"></mat-progress-bar>
-        <span fxLayout="15">${{this.playerFaction.structureBonuses}}</span>
+        <mat-icon fxLayout="15" matBadge="{{this.playerFaction.structureBonusTerritories}}" matBadgeSize="small" matTooltip="Structure Bonuses">home</mat-icon>
+        <mat-progress-bar fxLayout="70" mode="determinate" [value]="this.playerFaction.structureBonusMoney"></mat-progress-bar>
+        <span fxLayout="15">${{this.playerFaction.structureBonusMoney}}</span>
       </div>
     </mat-card-content>
     <mat-card-actions>
