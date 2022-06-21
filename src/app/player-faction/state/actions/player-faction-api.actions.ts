@@ -1,4 +1,5 @@
 import { createAction, props } from "@ngrx/store";
+import { StructureBonusType } from "src/app/structure-bonusses/enums/structure-bonus-type.enum";
 import { PlayerFaction } from "../../interfaces/player-faction.interface";
 
 export const loadSuccess = createAction(
@@ -23,7 +24,7 @@ export const getWinningPlayerFactionFailure = createAction(
 
 export const updateSuccess = createAction(
     '[Player Faction API] Update Success',
-    props<{ playerFaction: PlayerFaction }>()
+    props<{ playerFaction: PlayerFaction, structureBonusType: StructureBonusType }>()
 );
 
 export const updateFailure = createAction(
@@ -33,7 +34,7 @@ export const updateFailure = createAction(
 
 export const createSuccess = createAction(
     '[Player Faction API] Create Success',
-    props<{ playerFaction: PlayerFaction }>()
+    props<{ playerFaction: PlayerFaction, structureBonusType: StructureBonusType }>()
 );
 
 export const createFailure = createAction(

@@ -1,5 +1,5 @@
 // Angular
-import { NgModule } from '@angular/core';
+import { NgModule, Injector } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserModule } from '@angular/platform-browser';
@@ -15,6 +15,7 @@ import { environment } from '../environments/environment';
 // Toast
 import { ToastrModule } from 'ngx-toastr';
 
+
 // App modules and components
 import { AppComponent } from './app.component';
 import { ShellModule } from './player-faction/shell/shell.module';
@@ -24,6 +25,8 @@ import { StructureBonussesModule } from './structure-bonusses/structure-bonusses
 
 // Database
 import { ScytheData } from './shared/database/scythe.data';
+
+export let AppInjector: Injector;
 
 @NgModule({
   declarations: [
@@ -55,4 +58,9 @@ import { ScytheData } from './shared/database/scythe.data';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+export class AppModule {
+  constructor(private injector: Injector) {
+    AppInjector = this.injector;
+  }
+}

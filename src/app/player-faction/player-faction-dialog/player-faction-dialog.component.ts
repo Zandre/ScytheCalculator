@@ -88,13 +88,12 @@ export class PlayerFactionDialogComponent implements OnInit {
     }
 
     if (this.playerFactionFormGroup.value.id === 0) {
-      this.store.dispatch(PlayerFactionPageActions.createPlayerFaction({ playerFaction: this.playerFactionFormGroup.value }));
+      this.store.dispatch(PlayerFactionPageActions.createPlayerFaction({ playerFaction: this.playerFactionFormGroup.value, structureBonusType: this.structureBonusMetaData.type }));
     } else {
-      this.store.dispatch(PlayerFactionPageActions.updatePlayerFaction({ playerFaction: this.playerFactionFormGroup.value }));
+      this.store.dispatch(PlayerFactionPageActions.updatePlayerFaction({ playerFaction: this.playerFactionFormGroup.value, structureBonusType: this.structureBonusMetaData.type }));
     }
 
-    this.store.dispatch(PlayerFactionPageActions.getWinningPlayerFaction());
-
+    this.store.dispatch(PlayerFactionPageActions.getWinningPlayerFaction({ structureBonusType: this.structureBonusMetaData.type }));
     this._dialogRef.close();
   }
 

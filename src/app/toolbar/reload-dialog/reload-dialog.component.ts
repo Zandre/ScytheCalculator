@@ -27,7 +27,7 @@ export class ReloadDialogComponent implements OnInit {
   reloadClicked(): void {
     this.playerFactionStore.dispatch(PlayerFactionPageActions.resetDatabase());
     this.structureBonusStore.dispatch(StructureBonusPageActions.updateStructureBonus({ structureBonusType: 0 }));
-    this.playerFactionStore.dispatch(PlayerFactionPageActions.getWinningPlayerFaction());
+    this.playerFactionStore.dispatch(PlayerFactionPageActions.getWinningPlayerFaction({ structureBonusType: 0 }));
     this._dialogRef.close();
   }
 

@@ -27,7 +27,10 @@ export class PlayerFactionModel implements PlayerFaction {
     structureBonusMoney: number;
     TOTAL: number;
 
-    static create(input: PlayerFaction): PlayerFactionModel {
+    constructor() {
+    }
+
+    static create(input: PlayerFaction, structureBonusType: StructureBonusType | null): PlayerFactionModel {
         const model = new PlayerFactionModel();
 
         model.id = input.id;
@@ -82,7 +85,12 @@ export class PlayerFactionModel implements PlayerFaction {
         model.victoryStarMoney = this.getVictoryStarMoney(model.victoryStars, model.popularity);
         model.territoryMoney = this.getTerritoryMoney(model.territories, model.popularity);
         model.resourceMoney = this.getResourceSMoney(model.resources, model.popularity);
-        model.structureBonusMoney = StructureBonusCalculation(model.structureBonusTerritories, StructureBonusType.AdjacentToEncounters);
+
+        if (structureBonusType) {
+          model.structureBonusMoney = StructureBonusCalculation(model.structureBonusTerritories, structureBonusType);
+        } else {
+          model.structureBonusMoney = 0;
+        }
 
         model.TOTAL = model.victoryStarMoney +
           model.territoryMoney +

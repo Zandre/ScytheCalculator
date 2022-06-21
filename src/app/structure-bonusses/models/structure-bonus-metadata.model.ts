@@ -5,9 +5,11 @@ export class StructureBonusMetaDataModel {
   description: string;
   imageName: string;
   question: string;
+  type: StructureBonusType;
 
   static createFromType(type: StructureBonusType): StructureBonusMetaDataModel {
     const model = new StructureBonusMetaDataModel();
+    model.type = type;
     switch (type) {
       case StructureBonusType.AdjacentToTunnels:
         model.name = 'Adjacent to Tunnel Territories';
