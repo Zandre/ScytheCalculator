@@ -91,6 +91,7 @@
       <mat-select [placeholder]="this.structureBonusMetaData.question" formControlName="structureBonusTerritories" required>
         <mat-option *ngFor="let item of this.structureBonusesArray; index as i" [value]="item">{{item}}</mat-option>
       </mat-select>
+      <mat-icon matSuffix>add_location</mat-icon>
       <mat-error>
         {{ this.playerFactionFormGroup.controls.structureBonusTerritories.errorMessage }}
       </mat-error>

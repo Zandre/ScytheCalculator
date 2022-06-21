@@ -31,7 +31,7 @@ export class PlayerFactionDialogComponent implements OnInit {
   territoriesArray = Array.from({length: 30}, (_, i) => i);
   resourcesArray = Array.from({length: 50}, (_, i) => i);
   moneyArray = Array.from({length: 50}, (_, i) => i);
-  structureBonusesArray = Array.from({length: 7}, (_, i) => i);
+  structureBonusesArray = Array.from({length: 8}, (_, i) => i);
 
   constructor(@Inject(MAT_DIALOG_DATA) public _model: PlayerFaction,
   private readonly _rxFormBuilder: RxFormBuilder,
