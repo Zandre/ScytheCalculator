@@ -19,7 +19,7 @@ export const playerFactionReducer = createReducer<PlayerFactionState>(
     on(PlayerFactionApiActions.loadSuccess, (state, action): PlayerFactionState => {
         return {
             ...state,
-            playerFactions: action.playerFactions.map(pF => PlayerFactionModel.create(pF)),
+            playerFactions: action.playerFactions.map(pF => PlayerFactionModel.create(pF, null)),
             error: ''
         };
     }),
@@ -33,7 +33,7 @@ export const playerFactionReducer = createReducer<PlayerFactionState>(
     on(PlayerFactionApiActions.getWinningPlayerFactionSuccess, (state, action): PlayerFactionState => {
         return {
             ...state,
-            winningPlayerFaction: action.playerFaction ? PlayerFactionModel.create(action.playerFaction) : null,
+            winningPlayerFaction: action.playerFaction ? PlayerFactionModel.create(action.playerFaction, null) : null,
             error: ''
         };
     }),
@@ -46,7 +46,7 @@ export const playerFactionReducer = createReducer<PlayerFactionState>(
     on(PlayerFactionApiActions.createSuccess, (state, action): PlayerFactionState => {
         return {
             ...state,
-            playerFactions: [...state.playerFactions, PlayerFactionModel.create(action.playerFaction)],
+            playerFactions: [...state.playerFactions, PlayerFactionModel.create(action.playerFaction, action.structureBonusType)],
             error: ''
         };
     }),
@@ -58,12 +58,12 @@ export const playerFactionReducer = createReducer<PlayerFactionState>(
     }),
     on(PlayerFactionApiActions.updateSuccess, (state, action): PlayerFactionState => {
         const updatedPlayerFactions = state.playerFactions.map(
-            untouchedFaction => action.playerFaction.id === untouchedFaction.id ? 
-                action.playerFaction : 
+            untouchedFaction => action.playerFaction.id === untouchedFaction.id ?
+                action.playerFaction :
                 untouchedFaction)
         return {
             ...state,
-            playerFactions: updatedPlayerFactions.map(pF => PlayerFactionModel.create(pF)),
+            playerFactions: updatedPlayerFactions.map(pF => PlayerFactionModel.create(pF, action.structureBonusType)),
             error: ''
         };
     }),

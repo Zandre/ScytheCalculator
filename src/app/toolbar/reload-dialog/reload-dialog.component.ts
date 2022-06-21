@@ -3,6 +3,8 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
 import { PlayerFactionPageActions } from 'src/app/player-faction/state/actions';
 import { PlayerFactionState } from 'src/app/player-faction/state/player-faction.reducer';
+import { StructureBonusPageActions } from 'src/app/structure-bonusses/state/actions';
+import { StructureBonusState } from 'src/app/structure-bonusses/state/sructure-bonus.reducer';
 
 @Component({
   selector: 'app-reload-dialog',
@@ -14,7 +16,8 @@ export class ReloadDialogComponent implements OnInit {
 
   constructor(
     private _dialogRef: MatDialogRef<ReloadDialogComponent, null>,
-    private store: Store<PlayerFactionState>) {
+    private playerFactionStore: Store<PlayerFactionState>,
+    private structureBonusStore: Store<StructureBonusState>) {
    }
 
   ngOnInit(): void {
@@ -22,8 +25,9 @@ export class ReloadDialogComponent implements OnInit {
   }
 
   reloadClicked(): void {
-    this.store.dispatch(PlayerFactionPageActions.resetDatabase());
-    this.store.dispatch(PlayerFactionPageActions.getWinningPlayerFaction());
+    this.playerFactionStore.dispatch(PlayerFactionPageActions.resetDatabase());
+    this.structureBonusStore.dispatch(StructureBonusPageActions.updateStructureBonus({ structureBonusType: 0 }));
+    this.playerFactionStore.dispatch(PlayerFactionPageActions.getWinningPlayerFaction({ structureBonusType: 0 }));
     this._dialogRef.close();
   }
 

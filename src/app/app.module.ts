@@ -1,5 +1,5 @@
 // Angular
-import { NgModule } from '@angular/core';
+import { NgModule, Injector } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { BrowserModule } from '@angular/platform-browser';
@@ -15,15 +15,18 @@ import { environment } from '../environments/environment';
 // Toast
 import { ToastrModule } from 'ngx-toastr';
 
+
 // App modules and components
 import { AppComponent } from './app.component';
 import { ShellModule } from './player-faction/shell/shell.module';
 import { ToolbarModule } from './toolbar/toolbar.module';
 import { PlayerFactionModule } from './player-faction/player-faction.module';
+import { StructureBonussesModule } from './structure-bonusses/structure-bonusses.module';
 
 // Database
-import { PlayerFactionData } from './player-faction/database/player-faction.data';
+import { ScytheData } from './shared/database/scythe.data';
 
+export let AppInjector: Injector;
 
 @NgModule({
   declarations: [
@@ -34,7 +37,8 @@ import { PlayerFactionData } from './player-faction/database/player-faction.data
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(PlayerFactionData),
+    HttpClientInMemoryWebApiModule.forRoot(ScytheData),
+
     FlexLayoutModule,
 
     // NgRX
@@ -48,9 +52,15 @@ import { PlayerFactionData } from './player-faction/database/player-faction.data
     // App modules and components
     ToolbarModule,
     PlayerFactionModule,
-    ShellModule
+    ShellModule,
+    StructureBonussesModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+
+export class AppModule {
+  constructor(private injector: Injector) {
+    AppInjector = this.injector;
+  }
+}

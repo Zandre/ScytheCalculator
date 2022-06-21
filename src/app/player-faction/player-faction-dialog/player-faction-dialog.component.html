@@ -5,6 +5,7 @@
     <mat-form-field>
       <mat-label>Player Name</mat-label>
       <input matInput placeholder="John Doe" formControlName="playerName">
+      <mat-icon matSuffix>person</mat-icon>
       <mat-error>
         {{ this.playerFactionFormGroup.controls.playerName.errorMessage }}
       </mat-error>
@@ -22,6 +23,7 @@
           <mat-option [value]="6">Clan Albion</mat-option>
           <mat-option [value]="7">Togawa Shogunate</mat-option>
         </mat-select>
+        <mat-icon matSuffix>flag_circle</mat-icon>
         <mat-error>
           {{ this.playerFactionFormGroup.controls.playerFactionType.errorMessage }}
         </mat-error>
@@ -32,6 +34,7 @@
         <mat-select placeholder="Popularity" formControlName="popularity" required>
           <mat-option *ngFor="let item of this.popularityArray; index as i" [value]="item">{{item}}</mat-option>
         </mat-select>
+        <mat-icon matSuffix>favorite</mat-icon>
         <mat-error>
           {{ this.playerFactionFormGroup.controls.popularity.errorMessage }}
         </mat-error>
@@ -42,6 +45,7 @@
         <mat-select placeholder="Victory Stars" formControlName="victoryStars" required>
           <mat-option *ngFor="let item of this.victoryStarsArray; index as i" [value]="item">{{item}}</mat-option>
         </mat-select>
+        <mat-icon matSuffix>star</mat-icon>
         <mat-error>
           {{ this.playerFactionFormGroup.controls.victoryStars.errorMessage }}
         </mat-error>
@@ -52,6 +56,7 @@
         <mat-select placeholder="Territories" formControlName="territories" required>
           <mat-option *ngFor="let item of this.territoriesArray; index as i" [value]="item">{{item}}</mat-option>
         </mat-select>
+        <mat-icon matSuffix>hexagon</mat-icon>
         <mat-error>
           {{ this.playerFactionFormGroup.controls.territories.errorMessage }}
         </mat-error>
@@ -62,6 +67,7 @@
         <mat-select placeholder="Resources" formControlName="resources" required>
           <mat-option *ngFor="let item of this.resourcesArray; index as i" [value]="item">{{item}}</mat-option>
         </mat-select>
+        <mat-icon matSuffix>forest</mat-icon>
         <mat-error>
           {{ this.playerFactionFormGroup.controls.resources.errorMessage }}
         </mat-error>
@@ -72,21 +78,24 @@
         <mat-select placeholder="Money" formControlName="money" required>
           <mat-option *ngFor="let item of this.moneyArray; index as i" [value]="item">{{item}}</mat-option>
         </mat-select>
+        <mat-icon matSuffix>paid</mat-icon>
         <mat-error>
           {{ this.playerFactionFormGroup.controls.money.errorMessage }}
         </mat-error>
       </mat-form-field>
 
-      <mat-form-field>
-        <mat-label>Structure Bonuses</mat-label>
-        <mat-select placeholder="Structure Bonuses" formControlName="structureBonuses" required>
-          <mat-option *ngFor="let item of this.structureBonusesArray; index as i" [value]="item">{{item}}</mat-option>
-        </mat-select>
-        <mat-error>
-          {{ this.playerFactionFormGroup.controls.structureBonuses.errorMessage }}
-        </mat-error>
-      </mat-form-field>
     </div>
+
+    <mat-form-field fxFill *ngIf="this.structureBonusMetaData">
+      <mat-label>{{this.structureBonusMetaData.question}}</mat-label>
+      <mat-select [placeholder]="this.structureBonusMetaData.question" formControlName="structureBonusTerritories" required>
+        <mat-option *ngFor="let item of this.structureBonusesArray; index as i" [value]="item">{{item}}</mat-option>
+      </mat-select>
+      <mat-icon matSuffix>add_location</mat-icon>
+      <mat-error>
+        {{ this.playerFactionFormGroup.controls.structureBonusTerritories.errorMessage }}
+      </mat-error>
+    </mat-form-field>
 
   </form>
 </mat-dialog-content>

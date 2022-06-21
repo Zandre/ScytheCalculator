@@ -1,0 +1,14 @@
+<mat-card class="card" (click)="selectStructureBonusClicked()">
+  <div *ngIf="!(structureBonus$ | async)"
+    fxFill fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="2em">
+      <mat-icon>add_location</mat-icon>
+      <span>select structure bonus type</span>
+  </div>
+  <div *ngIf="structureBonus$ | async"
+    fxFill fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="1em">
+    <h3>Structure Bonus</h3>
+    <span>{{metaData.name}}</span>
+    <img src="./../../../assets/img/scythe/structure_bonus/{{metaData.imageName}}.PNG">
+    <span>{{metaData.description}}</span>
+  </div>
+</mat-card>

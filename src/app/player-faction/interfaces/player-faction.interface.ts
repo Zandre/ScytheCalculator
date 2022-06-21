@@ -9,5 +9,5 @@ export interface PlayerFaction {
     territories: number;
     resources: number;
     money: number;
-    structureBonuses: number;
+    structureBonusTerritories: number;
 }

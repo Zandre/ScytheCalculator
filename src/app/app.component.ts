@@ -6,6 +6,9 @@ import { getError, getPlayerFactions, getWinningPlayerFaction } from './player-f
 import { PlayerFactionPageActions } from './player-faction/state/actions';
 import { PlayerFactionState } from './player-faction/state/player-faction.reducer';
 import { ValidationService } from './shared/services/validation.service';
+import { StructureBonusType } from './structure-bonusses/enums/structure-bonus-type.enum';
+import { StructureBonusPageActions } from './structure-bonusses/state/actions';
+import { StructureBonusState } from './structure-bonusses/state/sructure-bonus.reducer';
 
 @Component({
   selector: 'app-root',
@@ -14,23 +17,25 @@ import { ValidationService } from './shared/services/validation.service';
 })
 export class AppComponent implements OnInit {
 
-  title = 'ScytheCalculator';
-
   playerFactions$: Observable<PlayerFactionModel[]>;
+  structureBonus$: Observable<StructureBonusType>;
   winningPlayerFaction$:  Observable<PlayerFactionModel>;
   error$: Observable<string>;
 
   constructor(
     private validationService: ValidationService,
-    private store: Store<PlayerFactionState>) {
+    private playerFactionStore: Store<PlayerFactionState>,
+    private structureBonusStore: Store<StructureBonusState>) {
   }
 
   ngOnInit(): void {
     this.validationService.setDefaultValidationMessages();
 
-    this.playerFactions$ = this.store.select(getPlayerFactions);
-    this.winningPlayerFaction$ = this.store.select(getWinningPlayerFaction);
-    this.error$ = this.store.select(getError)
-    this.store.dispatch(PlayerFactionPageActions.loadPlayerFactions());
+    this.playerFactions$ = this.playerFactionStore.select(getPlayerFactions);
+    this.winningPlayerFaction$ = this.playerFactionStore.select(getWinningPlayerFaction);
+    this.error$ = this.playerFactionStore.select(getError)
+
+    this.playerFactionStore.dispatch(PlayerFactionPageActions.loadPlayerFactions());
+    this.structureBonusStore.dispatch(StructureBonusPageActions.getStructureBonus());
   }
 }

@@ -1,0 +1,15 @@
+.card {
+  width: 250px;
+  height: 325px;
+  margin-top: 10px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.card:hover {
+  box-shadow: 0 0 11px lightgrey;
+}
+
+.mat-icon {
+  transform: scale(5);
+}

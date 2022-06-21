@@ -1,7 +1,10 @@
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { catchError, map, Observable, throwError } from "rxjs";
+import { StructureBonus } from "src/app/structure-bonusses/interfaces/structure-bonus.interface";
+import { StructureBonusService } from "src/app/structure-bonusses/services/structure-bonus.service";
 import { PlayerFaction } from "../interfaces/player-faction.interface";
+import { PlayerFactionModel } from "../models/player-faction.model";
 
 @Injectable({
     providedIn: 'root',
@@ -10,7 +13,8 @@ import { PlayerFaction } from "../interfaces/player-faction.interface";
 export class PlayerFactionService {
     private playerFactionsUrl = 'api/playerFactions';
 
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient,
+      private structureBonusService: StructureBonusService) {
 
     }
 

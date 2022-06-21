@@ -1,5 +1,7 @@
 import { PlayerFactionType } from "../enums/player-faction-type.enum";
 import { PlayerFaction } from "../interfaces/player-faction.interface";
+import { StructureBonusCalculation } from "../../structure-bonusses/utils/structure-bonus-calculation";
+import { StructureBonusType } from "src/app/structure-bonusses/enums/structure-bonus-type.enum";
 
 export class PlayerFactionModel implements PlayerFaction {
 
@@ -12,7 +14,7 @@ export class PlayerFactionModel implements PlayerFaction {
     territories: number;
     resources: number;
     money: number;
-    structureBonuses: number;
+    structureBonusTerritories: number;
 
     // front-end concerns
     factionName: string;
@@ -22,9 +24,13 @@ export class PlayerFactionModel implements PlayerFaction {
     victoryStarMoney: number;
     territoryMoney: number;
     resourceMoney: number;
+    structureBonusMoney: number;
     TOTAL: number;
 
-    static create(input: PlayerFaction): PlayerFactionModel {
+    constructor() {
+    }
+
+    static create(input: PlayerFaction, structureBonusType: StructureBonusType | null): PlayerFactionModel {
         const model = new PlayerFactionModel();
 
         model.id = input.id;
@@ -36,7 +42,7 @@ export class PlayerFactionModel implements PlayerFaction {
         model.territories = input.territories;
         model.resources = input.resources;
         model.money = input.money;
-        model.structureBonuses = input.structureBonuses;
+        model.structureBonusTerritories = input.structureBonusTerritories;
 
         switch(input.playerFactionType){
             case PlayerFactionType.Albion:
@@ -80,7 +86,17 @@ export class PlayerFactionModel implements PlayerFaction {
         model.territoryMoney = this.getTerritoryMoney(model.territories, model.popularity);
         model.resourceMoney = this.getResourceSMoney(model.resources, model.popularity);
 
-        model.TOTAL = model.victoryStarMoney + model.territoryMoney + model.resourceMoney + model.money + model.structureBonuses;
+        if (structureBonusType) {
+          model.structureBonusMoney = StructureBonusCalculation(model.structureBonusTerritories, structureBonusType);
+        } else {
+          model.structureBonusMoney = 0;
+        }
+
+        model.TOTAL = model.victoryStarMoney +
+          model.territoryMoney +
+          model.resourceMoney +
+          model.money +
+          model.structureBonusMoney;
 
         return model;
     }

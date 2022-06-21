@@ -13,10 +13,11 @@ export class ValidationService {
           baseConfig: {
 
           },
-          validationMessage: { 
+          validationMessage: {
               required: 'Required',
               maxNumber: 'Maximum number exceeded',
               minNumber: 'Minimum number exceeded',
+              maxLenght: 'Maximum length exceeded'
             }
         });
 
