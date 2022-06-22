@@ -5,7 +5,6 @@ import { IFormGroup, RxFormBuilder } from '@rxweb/reactive-form-validators';
 import { ToastrService } from 'ngx-toastr';
 import { PlayerFaction } from 'src/app/player-faction/interfaces/player-faction.interface';
 import { PlayerFactionService } from 'src/app/player-faction/services/player-faction.service';
-import { PlayerFactionState } from 'src/app/player-faction/state/player-faction.reducer';
 import { StructureBonusType } from '../enums/structure-bonus-type.enum';
 import { StructureBonus } from '../interfaces/structure-bonus.interface';
 import { StructureBonusService } from '../services/structure-bonus.service';
@@ -31,7 +30,6 @@ export class StructureBonusDialogComponent implements OnInit {
     private _dialogRef: MatDialogRef<StructureBonusDialogComponent, StructureBonusModel>,
     private toastr: ToastrService,
     private structureBonusStore: Store<StructureBonusState>,
-    private playerFactionStore: Store<PlayerFactionState>,
     private playerFactionService: PlayerFactionService,
     private structureBonusService: StructureBonusService) { }
 

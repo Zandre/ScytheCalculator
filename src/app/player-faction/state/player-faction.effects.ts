@@ -1,9 +1,8 @@
 import { Injectable } from "@angular/core";
 import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { concat, forkJoin, of } from "rxjs";
-import { catchError, concatMap, map, mergeMap, switchMap } from "rxjs/operators";
+import { of } from "rxjs";
+import { catchError, concatMap, map, mergeMap } from "rxjs/operators";
 import { StructureBonusType } from "src/app/structure-bonusses/enums/structure-bonus-type.enum";
-import { StructureBonusService } from "src/app/structure-bonusses/services/structure-bonus.service";
 import { PlayerFaction } from "../interfaces/player-faction.interface";
 import { PlayerFactionModel } from "../models/player-faction.model";
 import { PlayerFactionService } from "../services/player-faction.service";
