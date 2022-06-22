@@ -12,8 +12,7 @@ import { PlayerFactionPageActions, PlayerFactionApiActions } from "./actions";
 export class PlayerFactionEffects {
 
     constructor(private actions$: Actions,
-        private playerFactionService: PlayerFactionService,
-        private structureBonusService: StructureBonusService) {
+        private playerFactionService: PlayerFactionService) {
 
     }
 
