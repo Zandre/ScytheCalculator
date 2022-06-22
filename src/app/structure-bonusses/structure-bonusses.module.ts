@@ -4,7 +4,7 @@ import { structureBonusReducer } from './state/sructure-bonus.reducer';
 import { StructureBonusEffects } from './state/structure-bonus.effects';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { StructureBonusDialogModule } from './structure-bonus-dialog/structure-bonus-dialog.module.component';
+import { StructureBonusDialogModule } from './structure-bonus-dialog/structure-bonus-dialog.module';
 import { StructureBonusCardModule } from './structure-bonus-card/structure-bonus-card.module';
 
 @NgModule({
