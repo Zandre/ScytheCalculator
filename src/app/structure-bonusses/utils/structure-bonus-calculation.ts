@@ -30,7 +30,8 @@ function AdjacentToTunnels(territories: number, type: StructureBonusType): numbe
   } else if (territories === 6) {
     return 9;
   } else if (territories > 6) {
-    throw new Error(`Invalid AdjacentToTunnels() ${territories}:${type}`)
+    console.error(`Invalid AdjacentToTunnels() ${territories}:${type}`);
+    throw new Error('Invalid value: Adjacent to tunnels');
   }
   return 0;
 }
@@ -69,7 +70,8 @@ function NumberOfTunnels(territories: number, type: StructureBonusType): number 
   } else if (territories === 3 || territories === 4) {
     return 6;
   } else if (territories > 4) {
-    throw new Error(`Invalid NumberOfTunnels() ${territories}:${type}`)
+    console.error(`Invalid NumberOfTunnels() ${territories}:${type}`);
+    throw new Error('Invalid value: Number to tunnels');
   }
   return 0;
 }
@@ -84,7 +86,8 @@ function NumberOfStructuresInARow(territories: number, type: StructureBonusType)
   } else if (territories === 4) {
     return 9;
   } else if (territories > 4) {
-    throw new Error(`Invalid NumberOfStructuresInARow() ${territories}:${type}`)
+    console.error(`Invalid NumberOfStructuresInARow() ${territories}:${type}`);
+    throw new Error('Invalid value: number of structure in a row');
   }
   return 0;
 }
@@ -99,7 +102,8 @@ function NumberOfFarmsOrTundras(territories: number, type: StructureBonusType): 
   } else if (territories === 4) {
     return 9;
   } else if (territories > 4) {
-    throw new Error(`Invalid NumberOfFarmsOrTundras() ${territories}:${type}`)
+    console.error(`Invalid NumberOfFarmsOrTundras() ${territories}:${type}`);
+    throw new Error('Invalid value: number of farms or tundra');
   }
   return 0;
 }

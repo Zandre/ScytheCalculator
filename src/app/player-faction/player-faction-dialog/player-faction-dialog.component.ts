@@ -11,6 +11,7 @@ import { PlayerFactionService } from '../services/player-faction.service';
 import { PlayerFactionPageActions } from '../state/actions';
 import { PlayerFactionState } from '../state/player-faction.reducer';
 import { PlayerFactionModel } from './models/player-faction.model';
+import * as ServicePlayerFactionModel from '../models/player-faction.model';
 
 @Component({
   selector: 'player-faction-dialog',
@@ -85,6 +86,13 @@ export class PlayerFactionDialogComponent implements OnInit {
       this.existingPlayerFactions.find(p => p.playerFactionType === this.playerFactionFormGroup.value.playerFactionType && p.id !== this.playerFactionFormGroup.value.id)) {
         this.toastr.warning('This player faction already exists', 'Choose a different player faction');
         return;
+    }
+
+    try {
+      let model = ServicePlayerFactionModel.PlayerFactionModel.create(this.playerFactionFormGroup.value, this.structureBonusMetaData.type)
+    } catch (error) {
+      this.toastr.warning(error, 'An error occurred');
+      return;
     }
 
     if (this.playerFactionFormGroup.value.id === 0) {
