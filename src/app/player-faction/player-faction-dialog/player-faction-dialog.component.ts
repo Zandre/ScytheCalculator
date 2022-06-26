@@ -28,7 +28,7 @@ export class PlayerFactionDialogComponent implements OnInit {
   existingPlayerFactions: PlayerFaction[] = [];
 
   popularityArray = Array.from({length: 18}, (_, i) => i);
-  victoryStarsArray = Array.from({length: 6}, (_, i) => i);
+  victoryStarsArray = Array.from({length: 7}, (_, i) => i);
   territoriesArray = Array.from({length: 30}, (_, i) => i);
   resourcesArray = Array.from({length: 50}, (_, i) => i);
   moneyArray = Array.from({length: 50}, (_, i) => i);
